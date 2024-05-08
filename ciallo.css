@@ -1,0 +1,28 @@
+* {
+    background-color: rgb(30, 30, 34);
+    color: rgb(240, 238, 238); 
+    /* margin-left: 72px;
+    margin-right: 72px; */
+    font-size: 24px;
+    font-family: monospace;
+}
+  
+h1 {
+    font-size: 48px;
+}   
+
+h2 {
+    font-size: 40px;
+}  
+
+h3 {
+    font-size: 32px;
+}
+
+.light {
+    color: aquamarine
+}
+
+#smart {
+    color: blanchedalmond
+}

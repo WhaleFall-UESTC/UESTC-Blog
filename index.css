@@ -1,0 +1,99 @@
+h1, h2, h3, body, .title {
+    margin-left: 11%;
+    margin-right: 9%;
+}
+
+* {
+    background-color: rgb(28, 28, 28);
+    color: rgb(240, 238, 238); 
+    font-size: 18px;
+    font-family: monospace;
+    line-height: 1.05;
+}
+  
+h1 {
+    font-size: 60px;
+    color: aquamarine;
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}   
+
+h2 {
+    font-size: 40px;
+}  
+
+h3 {
+    font-size: 21px;
+    color: rgb(105, 105, 105);
+}
+
+.color1 {
+    color: rgb(24, 116, 235);
+}
+
+.color2 {
+    color: rgb(115, 157, 212);
+}
+
+.color3 {
+    color: rgb(10, 166, 190);
+}
+
+.color1, .color2, .color3 {
+    font-weight: bold;
+    font-size: 40px;
+}
+
+strong {
+    margin: 0px;
+    padding: 0px;
+}
+
+.button {
+    font-weight: bolder;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 15px; 
+    margin: 4px 2px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.title {
+    font-weight: bolder;
+    font-size: 60px;
+    color: aquamarine;
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.2s;
+}
+
+.button:hover {
+    background-color: rgb(83, 83, 85);
+}
+
+.icon {
+    margin-right: 5px;
+}
+
+.container {
+    /* display: grid;
+    place-items: end; */
+    margin-left: 64%;
+    margin-right: 8%;
+    display: flex;
+    justify-content: space-between; 
+}
+
+.form {
+    margin: 2px 4px;
+}
