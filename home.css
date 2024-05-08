@@ -1,8 +1,8 @@
-body, .container-right, .container-left, .content {
+body, .container-right, .container-left, .content, .article, .about-box {
     background-color: rgb(28, 28, 28);
     color: rgb(99, 97, 97); 
     font-size: 24px;
-    font-family: monospace;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     overflow-x: hidden;
     scrollbar-width: none;
     
@@ -24,7 +24,7 @@ body, .container-right, .container-left, .content {
 /* 侧边栏 */
 .sidebar {
     background-color: rgb(35, 34, 34);
-    width: 300px;
+    width: 18%;
     position: fixed;
     height: 100%;
     top: 0;
@@ -33,15 +33,17 @@ body, .container-right, .container-left, .content {
 }
 
 .sidebar h1 {
-    font-size: 28px;
+    font-size: 2.8rem;
     font-weight: bolder;
+    color: #c6c9c9;
+    margin-bottom: 0.1rem;
 }
 
 .sidebar p {
-    font-size: 20px;
+    font-size: 1.2rem;
     font-style: italic;
     font-family: Arial, Helvetica, sans-serif;
-    color: rgb(137, 135, 135);
+    color: rgb(158, 152, 152);
     overflow: visible
 }
 
@@ -49,22 +51,21 @@ body, .container-right, .container-left, .content {
     border-radius: 50%;
     border: 2px solid white;
     object-fit: cover;
-    width: 120px;
-    height: 120px;
+    width: 8rem;
+    height: 8rem;
 }
 
 
 .sidebar .column-button {
     background-color: rgb(35, 34, 34);
-    color: grey;
-    font-family: monospace;
-    font-weight: bold;
+    color: rgb(185, 179, 179);
+    font-weight: bolder;
     display: inline-block;
-    width: 180px;
+    width: 15rem;
     padding: 10px 20px;
     text-align: left;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 1.4rem;
     margin: 4px 2px;
     margin-left: 10px;
     cursor: pointer;
@@ -77,6 +78,9 @@ body, .container-right, .container-left, .content {
     background-color: rgb(58, 58, 59);
 }
 
+.icon {
+    margin-right: 0.5rem;
+}
 
 
 
@@ -128,29 +132,28 @@ body, .container-right, .container-left, .content {
 }
 
 .about-box h1 {
-    font-size: 24px;
+    font-size: 1.85rem;
     font-weight: bolder;
-    font-family: monospace;
+    /* font-family: monospace; */
     color :rgb(137, 135, 135);
-    margin-bottom: 2px;
+    margin-bottom: 0.7rem;
 }
 
 .about-box p {
-    font-size: 17px;
-    font-family: monospace;
-    color :rgb(101, 98, 98);
-    margin-top: 3px;
+    font-size: 1.05rem;
+    /* font-family: monospace; */
+    color :#919292;
 }
 
 
 
 
 .content {
-    margin-left: 30%;
-    margin-top: 40px;
-    margin-bottom: 80px;
+    margin-left: 28%;
+    margin-top: 3%;
+    margin-bottom: 6%;
 
-    width: 640px;
+    width: 64%;
     flex-wrap: wrap;
     overflow: hidden;
 
@@ -160,13 +163,13 @@ body, .container-right, .container-left, .content {
 
 .article {
     margin-bottom: 20px;
-    width: 640px;
+    width: 66%;
 
     border: 1px solid #a4a4a4;
     border-radius: 10px;
 
     background-color: transparent transparent;
-    font-family: monospace;
+    /* font-family: monospace; */
 
     display: inline-block;
 
@@ -181,18 +184,18 @@ body, .container-right, .container-left, .content {
 }
 
 .article h1 {
-    font-size: 32px;
+    font-size: 2.5rem;
     color:#c5c7c7;
     margin-bottom:  10px;
 }
 
 .article p {
-    font-size: 16px;
-    color: #858686;
+    font-size: 1.2rem;
+    color: #919292;
 }
 
 .article .time {
-    font-size: 16px;
+    font-size: 1rem;
     color: #918d8d;
     /* text-align: right; */
 }
