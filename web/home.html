@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/js-sha256/src/sha256.js"></script>
+    <meta charset="UTF-8">
+    <title>UESTC-Blog</title>
+    <link rel="stylesheet" href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+    <div class="container-left">
+        <div class="sidebar">
+            <br><br>
+            <img src="img/whalefall.jpg" class="HeadImage">
+            <br>
+            <h1>WhaleFall</h1>
+            <p>Don't cry, I am just a fish.</p>
+            <br>
+
+            <form action="home" method="get">
+                <button class="column-button"><i class="fa fa-th-list icon"></i> Home</button>
+            </form>
+
+            <form action="archives" method="get">
+                <button class="column-button"><i class="fa fa-th-list icon"></i> Archives</button>
+            </form>
+
+            <form action="notes" method="get">
+                <button class="column-button"><i class="fa fa-th-list icon"></i> Notes</button>
+            </form>
+
+            <form action="board" method="get">
+                <button class="column-button"><i class="fa fa-th-list icon"></i> Board</button>
+            </form>
+            <div class="news-box" th:if="${preinviters.size() != 0 && authority == 3}">
+                <h1>消息</h1>
+                <form  action="changetoinviter" method="post" th:each="preinviter:${preinviters}">
+                    <input type="hidden" name="id" class="preinviter" th:value="${preinviter.getUserid()}">
+                    <input type="submit" class="column-button" th:value="${preinviter.getName()}">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-right">
+        <div class="search-box">
+            <i class="fa fa-search"></i>
+            <input type="search" placeholder="Search...">
+        </div>
+        
+        <div class="about-box">
+            <div class="notification-box">
+                <h1>通知</h1>
+                <div th:if="${authority != null && authority == 3}">
+                    <form action="sendNts" method="post">
+                        <input type="hidden" name="authority" th:value="${authority}">
+                        <input required="required" name="nts" class="inf" type="text" placeholder="more...">
+                        <input type="submit" class="button-right" value="add">
+                    </form>
+                </div>
+                <table>
+                    <tr th:each="nts:${ntss}">
+                        <td th:text="${nts.getNts()}"></td>
+                    </tr>
+                </table>
+                <br>
+            </div>
+            <div class="message-box">
+                <h1>最新留言</h1>
+                <div th:if="${authority != null && authority == 2}">
+                    <form action="sendMsg" method="post">
+                        <input type="hidden" name="authority" th:value="${authority}">
+                        <input required="required" name="msg" class="inf" type="text" placeholder="more...">
+                        <input type="submit" class="button-right" value="add">
+                    </form>
+                </div>
+                <div th:if="${authority != null && authority == 1}">
+                    <form action="preinviter" method="post">
+                        <input type="hidden" name="id" th:value="${id}">
+                        <input type="submit" class="button-right" value="apply">
+                    </form>
+                </div>
+                <table>
+                    <tr th:each="msg:${msgs}">
+                        <td th:text="${msg.getMsg()}"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="article">
+            <h1>Clannad</h1>
+            <p>Call life as natality, noticing, accompanying, death</p>
+            <p class="time">2024.5.8</p>
+        </div>
+
+        <div class="article">
+            <h1>Stein;Gate</h1>
+            <p>宇宙虽有其起源，却没有终结——无限。星球虽也有起源，却因其自身之力走向毁灭——有限。拥有睿智之才最为愚蠢，历史上不胜枚举……</p>
+            <p class="time">2024.5.7</p>
+        </div>
+
+        <div class="article">
+            <h1>Puella Magi Madoka Magica</h1>
+            <p>已经没什么好害怕的了，我已经不是孤零零的一个人了</p>
+            <p class="time">2024.5.8</p>
+        </div>
+
+        <div class="article">
+            <h1>Cowboy Bebop</h1>
+            <p>你曾告诉我要忘记过去，因为这并不重要，但你仍然与过去息息相关，Spike</p>
+            <p class="time">2024.5.8</p>
+        </div>
+
+        <div class="article">
+            <h1>March Comes in Like a Lion</h1>
+            <p>桐山零，好奇怪的名字呢――不过，跟你还真贴切，因为不就是这样吗？没有家、没有家人、没有去的学校、没有朋友。看吧，容身居所，不管在这世界的任何地方，根本就不存在对吧？</p>
+            <p class="time">2024.5.8</p>
+        </div>
+
+        <div class="article">
+            <h1>Samurai Champloo</h1>
+            <p>我一直走着漆黑的路，可是人什么事情都能习惯的，就算看不见也能了解到许多的事情，所以，希望你不要觉得我很可悲</p>
+            <p class="time">2024.5.8</p>
+        </div>
+    </div>
+</body>
+</html>
