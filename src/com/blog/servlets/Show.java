@@ -1,13 +1,8 @@
 package com.blog.servlets;
 
-import com.blog.bean.Msg;
-import com.blog.bean.Nts;
+import com.blog.bean.*;
 import com.blog.bean.PreInviter;
-import com.blog.bean.User;
-import com.blog.dao.MsgDAO;
-import com.blog.dao.NtsDAO;
-import com.blog.dao.PreInviterDAO;
-import com.blog.dao.UserDAO;
+import com.blog.dao.*;
 import com.blog.myssm.myspringmvc.ViewBaseServlet;
 
 import javax.servlet.ServletException;
@@ -32,6 +27,12 @@ public class Show extends ViewBaseServlet {
         request.setAttribute("ntss", ntss);
         request.setAttribute("preinviters", preInviters);
         request.setAttribute("authority", 0);
+
+        /* Content: Articles in the middle */
+        ArticleDAO articleDAO = new ArticleDAO();
+        List<Article> articles = articleDAO.selectPart(1, articleDAO.countArticles());
+        request.setAttribute("articles", articles);
+        request.setAttribute("content", 1);
 
         super.processTemplate("home", request, response);
     }

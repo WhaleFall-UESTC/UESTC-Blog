@@ -197,6 +197,60 @@ body, .container-right, .container-left, .content, .article, .about-box, .inf, .
     /* text-align: right; */
 }
 
+.archive {
+    margin-bottom: 10px;
+    width: 66%;
+
+    background-color: transparent;
+    display: inline-block;
+
+    padding-bottom: 8px;
+    padding-top: 8px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.archive h1 {
+    font-size: 2.35rem;
+    color: #c5c7c7;
+    margin-bottom: 10px;
+}
+
+.archive p {
+    white-space: nowrap;
+}
+
+.archive h4 {
+    font-size: 1.6rem;
+    color: #9b9e9e;
+}
+
+.date {
+    white-space: nowrap;
+    font-size: 1.5rem;
+    color: #9b9e9e;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+.archive button {
+    font-size: 1.6rem;
+    color: #9b9e9e;
+    background-color: transparent;
+    border: transparent;
+    cursor: pointer;
+    padding: 0.15rem, 0.3rem;
+    border-radius: 10px;
+}
+
+.archive button:hover {
+    color: #2550de
+}
+
+
+
 .inf {
     background-color: rgb(28, 28, 28);
     width: 500px;
