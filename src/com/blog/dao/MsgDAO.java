@@ -18,7 +18,7 @@ public class MsgDAO {
         try {
             con = JDBCUtils.getConnection();
             sta = con.createStatement();
-            String sql = "select * from msgs;";
+            String sql = "select * from msgs order by id desc;";
             PreparedStatement pstmt = con.prepareStatement(sql);
             res = pstmt.executeQuery();
             while (res.next()) {
