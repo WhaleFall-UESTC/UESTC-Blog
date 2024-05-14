@@ -30,24 +30,25 @@ public class Login extends ViewBaseServlet {
         UserDAO userDAO = new UserDAO();
         User user = userDAO.login(email, password);
         if(user != null){
-            MsgDAO msgDAO = new MsgDAO();
-            List<Msg> msgs = msgDAO.selectall();
-            NtsDAO ntsDAO = new NtsDAO();
-            List<Nts> ntss = ntsDAO.selectall();
-            PreInviterDAO preInviterDAO = new PreInviterDAO();
-            List<PreInviter> preInviters = preInviterDAO.selectall();
-
-            request.setAttribute("msgs", msgs);
-            request.setAttribute("ntss", ntss);
-            request.setAttribute("preinviters", preInviters);
-            request.setAttribute("authority", user.getAuthority());
-            request.setAttribute("id",user.getId());
-            System.out.println(user.getAuthority());
+//            MsgDAO msgDAO = new MsgDAO();
+//            List<Msg> msgs = msgDAO.selectall();
+//            NtsDAO ntsDAO = new NtsDAO();
+//            List<Nts> ntss = ntsDAO.selectall();
+//            PreInviterDAO preInviterDAO = new PreInviterDAO();
+//            List<PreInviter> preInviters = preInviterDAO.selectall();
+//
+//            request.setAttribute("msgs", msgs);
+//            request.setAttribute("ntss", ntss);
+//            request.setAttribute("preinviters", preInviters);
+//            request.setAttribute("authority", user.getAuthority());
+//            request.setAttribute("id",user.getId());
+//            System.out.println(user.getAuthority());
 
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
+            response.sendRedirect("show");
 
-            super.processTemplate("home", request, response);
+//            super.processTemplate("home", request, response);
         } else {
             request.setAttribute("tipMsg", "email or password is wrong!");
             super.processTemplate("login", request, response);

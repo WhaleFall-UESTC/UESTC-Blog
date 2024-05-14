@@ -11,6 +11,7 @@
 <body>
     <div class="container-left">
         <div class="sidebar">
+<!--            <div class="sidebar_content">-->
             <br><br>
             <img src="img/whalefall.jpg" class="HeadImage">
             <br>
@@ -33,13 +34,14 @@
             <form action="board" method="get">
                 <button class="column-button"><i class="fa fa-th-list icon"></i> Board</button>
             </form>
-            <div class="news-box" th:if="${preinviters.size() != 0 && authority == 3}">
-                <h1>消息</h1>
-                <form  action="changetoinviter" method="post" th:each="preinviter:${preinviters}">
-                    <input type="hidden" name="id" class="preinviter" th:value="${preinviter.getUserid()}">
-                    <input type="submit" class="column-button" th:value="${preinviter.getName()}">
-                </form>
-            </div>
+<!--            <div class="news-box" th:if="${preinviters.size() != 0 && authority == 3}">-->
+<!--                <h1>消息</h1>-->
+<!--                <form  action="changetoinviter" method="post" th:each="preinviter:${preinviters}">-->
+<!--                    <input type="hidden" name="id" class="preinviter" th:value="${preinviter.getUserid()}">-->
+<!--                    <input type="submit" class="column-button" th:value="${preinviter.getName()}">-->
+<!--                </form>-->
+<!--            </div>-->
+<!--             </div>-->
         </div>
     </div>
 
@@ -65,8 +67,8 @@
             <div class="message-box">
                 <h1>最新留言</h1>
                 <div th:each="msg : ${msgs}">
-                    <p th:text="${msg.getUserName()}"></p>
-                    <p th:text="${msg.getMsg()}"></p>
+                    <p class="userName" th:text="${msg.getUserName()}"></p>
+                    <p class="msg" th:text="${msg.getMsg()}"></p>
                 </div>
 <!--                <div th:if="${authority != null && authority == 2}">-->
 <!--                    <form action="sendMsg" method="post">-->
