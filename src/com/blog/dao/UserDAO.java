@@ -1,9 +1,12 @@
 package com.blog.dao;
 
+import com.blog.bean.Msg;
 import com.blog.bean.User;
 import com.blog.utils.JDBCUtils;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserDAO {
     public User login(String email, String password){
@@ -135,6 +138,44 @@ public class UserDAO {
         } finally {
             JDBCUtils.close(res, sta, con);
         }
+        return u;
+    }
+
+    public User getUserById(int Id) {
+        Connection con = null;
+        Statement sta = null;
+        ResultSet res = null;
+        User u = new User();
+
+        try {
+            con = JDBCUtils.getConnection();
+            sta = con.createStatement();
+            String sql = "select * from users where id = ?;";
+            PreparedStatement pstmt = con.prepareStatement(sql);
+            pstmt.setInt(1, Id);
+            res = pstmt.executeQuery();
+
+            if (res.next()) {
+                int id = res.getInt("id");
+                String name = res.getString("name");
+                String password = res.getString("password");
+                String email = res.getString("email");
+                int authority = res.getInt("authority");
+
+                u.setId(id);
+                u.setName(name);
+                u.setPassword(password);
+                u.setEmail(email);
+                u.setAuthority(authority);
+            }
+        }
+
+        catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtils.close(res, sta, con);
+        }
+
         return u;
     }
 }
