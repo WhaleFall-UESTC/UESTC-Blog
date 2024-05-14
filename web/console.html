@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/js-sha256/src/sha256.js"></script> -->
+    <meta charset="UTF-8">
+    <title>Console</title>
+    <!-- <link rel="stylesheet" href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="css/console.css">
+</head>
+<body>
+    <h1 class="head">WhaleFall's Console</h1>
+    <div class="box-area">
+        <div class="userbox">
+            <form method="post" action="updateUser">
+                <h1>个人信息</h1>
+                <div class="info">
+                    <p>昵称：</p>
+                    <input type="text" name="name" placeholder="WhaleFall">
+                </div>
+                <div class="info">
+                    <p>邮箱：</p>
+                    <input type="email" name="email" placeholder="2023080902011@uestc.com">
+                </div>
+                <div class="info">
+                    <p>密码：</p>
+                    <input type="password" name="password" placeholder="新密码">
+                </div>
+                <div class="info">
+                    <p>头像：</p>
+                    <input type="file" name="img" placeholder="新头像">
+                </div>
+                <input type="submit" value="提交修改">
+            </form>
+        </div>
+
+        <div class="articlebox">
+            <h1>文章管理</h1>
+            <div class="article">
+                <p>2024-05-12</p>
+                <p class="title">Clannad</p>
+                <div class="op">
+                    <form method="post" action="deleteArticle">
+                        <input type="submit" value="删除">
+                    </form>
+                    <form method="post" action="updateArticle">
+                        <input type="text" placeholder="title" name="title">
+                        <input type="text" placeholder="descr" name="descr">
+                        <input type="submit" value="修改">
+                    </form>    
+                </div>
+            </div>
+            
+            <div class="article">
+                <p>2024-05-12</p>
+                <p class="title">Clannad</p>
+                <div class="op">
+                    <form method="post" action="deleteArticle">
+                        <input type="submit" value="删除">
+                    </form>
+                    <form method="post" action="updateArticle">
+                        <input type="text" placeholder="title" name="title">
+                        <input type="text" placeholder="descr" name="descr">
+                        <input type="submit" value="修改">
+                    </form>    
+                </div>
+            </div>
+            <div class="article">
+                <p>2024-05-12</p>
+                <p class="title">Clannad</p>
+                <div class="op">
+                    <form method="post" action="deleteArticle">
+                        <input type="submit" value="删除">
+                    </form>
+                    <form method="post" action="updateArticle">
+                        <input type="text" placeholder="title" name="title">
+                        <input type="text" placeholder="descr" name="descr">
+                        <input type="submit" value="修改">
+                    </form>    
+                </div>
+            </div>
+            <div class="article">
+                <p>2024-05-12</p>
+                <p class="title">Clannad</p>
+                <div class="op">
+                    <form method="post" action="deleteArticle">
+                        <input type="submit" value="删除">
+                    </form>
+                    <form method="post" action="updateArticle">
+                        <input type="text" placeholder="title" name="title">
+                        <input type="text" placeholder="descr" name="descr">
+                        <input type="submit" value="修改">
+                    </form>    
+                </div>
+            </div>
+
+            <div class="article">
+                <p>2024-05-12</p>
+                <p class="title">Clannad</p>
+                <div class="op">
+                    <form method="post" action="deleteArticle">
+                        <input type="submit" value="删除">
+                    </form>
+                    <form method="post" action="updateArticle">
+                        <input type="text" placeholder="title" name="title">
+                        <input type="text" placeholder="descr" name="descr">
+                        <input type="submit" value="修改">
+                    </form>    
+                </div>
+            </div>
+        </div>
+
+        
+    </div>   
+</body>
+</html>

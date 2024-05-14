@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <script src="https://cdn.jsdelivr.net/npm/js-sha256/src/sha256.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/js-sha256/src/sha256.js"></script> -->
     <meta charset="UTF-8">
     <title>UESTC-Blog</title>
     <link rel="stylesheet" href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -27,21 +27,13 @@
                 <button class="column-button"><i class="fa fa-th-list icon"></i> Archives</button>
             </form>
 
-<!--            <form action="notes" method="get">-->
-<!--                <button class="column-button"><i class="fa fa-th-list icon"></i> Notes</button>-->
-<!--            </form>-->
-
             <form action="board" method="get">
                 <button class="column-button"><i class="fa fa-th-list icon"></i> Board</button>
             </form>
-<!--            <div class="news-box" th:if="${preinviters.size() != 0 && authority == 3}">-->
-<!--                <h1>消息</h1>-->
-<!--                <form  action="changetoinviter" method="post" th:each="preinviter:${preinviters}">-->
-<!--                    <input type="hidden" name="id" class="preinviter" th:value="${preinviter.getUserid()}">-->
-<!--                    <input type="submit" class="column-button" th:value="${preinviter.getName()}">-->
-<!--                </form>-->
-<!--            </div>-->
-<!--             </div>-->
+
+            <form action="board" method="get">
+                <button class="column-button"><i class="fa fa-th-list icon"></i> Console</button>
+            </form>
         </div>
     </div>
 
@@ -55,13 +47,6 @@
             <div class="notification-box">
                 <h1>通知</h1>
                 <p th:text="${nts}"></p>
-<!--                <div th:if="${authority != null && authority == 3}">-->
-<!--                    <form action="sendNts" method="post">-->
-<!--                        <input type="hidden" name="authority" th:value="${authority}">-->
-<!--                        <input required="required" name="nts" class="inf" type="text" placeholder="more...">-->
-<!--                        <input type="submit" class="button-right" value="add">-->
-<!--                    </form>-->
-<!--                </div>-->
                 <br />
             </div>
             <div class="message-box">
@@ -70,24 +55,6 @@
                     <p class="userName" th:text="${msg.getUserName()}"></p>
                     <p class="msg" th:text="${msg.getMsg()}"></p>
                 </div>
-<!--                <div th:if="${authority != null && authority == 2}">-->
-<!--                    <form action="sendMsg" method="post">-->
-<!--                        <input type="hidden" name="authority" th:value="${authority}">-->
-<!--                        <input required="required" name="msg" class="inf" type="text" placeholder="more...">-->
-<!--                        <input type="submit" class="button-right" value="add">-->
-<!--                    </form>-->
-<!--                </div>-->
-<!--                <div th:if="${authority != null && authority == 1}">-->
-<!--                    <form action="preinviter" method="post">-->
-<!--                        <input type="hidden" name="id" th:value="${id}">-->
-<!--                        <input type="submit" class="button-right" value="apply">-->
-<!--                    </form>-->
-<!--                </div>-->
-<!--                <table>-->
-<!--                    <tr th:each="msg:${msgs}">-->
-<!--                        <td th:text="${msg.getMsg()}"></td>-->
-<!--                    </tr>-->
-<!--                </table>-->
             </div>
         </div>
     </div>
@@ -124,7 +91,6 @@
                 <input type="submit" value="留言">
             </form>
         </div>
-
     </div>
 </body>
 </html>

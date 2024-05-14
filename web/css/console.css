@@ -1,0 +1,207 @@
+ body {
+    background-color: rgb(28, 28, 28);
+    color: rgb(215, 217, 220);
+    font-size: 1rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+    height: 100%;
+
+    overflow-x: hidden;
+    scrollbar-width: none;
+
+    margin-top: 3%;
+    margin-bottom: 20px;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.head {
+    width: 100%;
+    font-size: 2.4rem;
+    font-weight: bold;
+    margin-bottom: 35px;
+}
+
+.box-area {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100%;
+    height: 90%;
+}
+
+.userbox {
+    align-self: flex-start;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    border: 1px solid #a4a4a4;
+    border-radius: 10px;
+
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.userbox {
+    width: 30%;
+    height: 20rem;
+}
+
+.userbox h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom:0.08rem;
+}
+
+.userbox .info {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin: 5px 5px;
+}
+
+.info input {
+    background-color: transparent;
+    border: 1px solid #a4a4a4;
+    border-top-style: none;
+    border-left-style: none;
+    border-right-style: none;
+
+    margin-top: 0.8rem;
+
+    height: 1.1rem;
+    width: 72%;
+    
+    color: rgb(215, 217, 220);
+    padding: 5px;
+}
+
+.info input:focus {
+    border: 1px solid #71a7e8;
+    border-top-style: none;
+    border-left-style: none;
+    border-right-style: none;
+}
+
+.userbox input[type="submit"] {
+    margin-left: 13.5rem;
+    border: none;
+    background-color: rgb(28, 28, 28);
+    color: rgb(215, 217, 220);
+    size: 1rem 1rem;
+    margin-bottom: 12px;
+}
+
+.userbox input[type="submit"]:hover {
+    cursor: pointer;
+    color: rgb(224, 227, 231);
+}
+
+
+
+.articlebox {
+    /* align-self: flex-start; */
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    border: 1px solid #a4a4a4;
+    border-radius: 10px;
+
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.articlebox {
+    margin-left: 1%;
+    width: 69%;
+    height: 20rem;
+
+    font-size: 1.1rem;
+    overflow-y: auto;
+    overflow-x: visible;
+}
+
+.articlebox h1 {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom:0.08rem;
+}
+
+.articlebox .article {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin: 5px 5px;
+
+    overflow-x: hidden;
+    scrollbar-width: none;
+}
+
+.article .title {
+    margin-left: 8%;
+    width: 10%;
+    overflow: hidden;
+}
+
+.article .op {
+    margin-left: 24%;
+    height: 1rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.op input[type="submit"] {
+    border: none;
+    size: 1rem 1rem;
+    background-color: transparent;
+    color: rgb(125, 161, 216);
+    margin-right: 1rem;
+}
+
+.op input[type="submit"]:hover {
+    color:rgb(51, 82, 219);
+}
+
+.op input {
+    background-color: transparent;
+    border: 1px solid #a4a4a4;
+    border-top-style: none;
+    border-left-style: none;
+    border-right-style: none;
+
+    margin-top: 0.8rem;
+
+    /* height: 1.2rem; */
+    width: 3rem;
+    
+    color: rgb(215, 217, 220);
+    padding: 5px;
+
+    margin-right: 0.4rem;
+}
+
+.op input:focus {
+    border: 1px solid #71a7e8;
+    border-top-style: none;
+    border-left-style: none;
+    border-right-style: none;
+}
