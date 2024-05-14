@@ -41,6 +41,31 @@ public class NtsDAO {
         return ntss;
     }
 
+    public String latestNts() {
+        Connection con = null;
+        Statement sta = null;
+        ResultSet res = null;
+
+        try {
+            con = JDBCUtils.getConnection();
+            sta = con.createStatement();
+            String sql = "select * from ntss order by id desc limit 1;";
+            PreparedStatement pstmt = con.prepareStatement(sql);
+            res = pstmt.executeQuery();
+            if (res.next()) {
+                String Nts = res.getString("nts");
+                return Nts;
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtils.close(res, sta, con);
+        }
+
+        return null;
+    }
+
     public boolean send(Nts inf)
     {
         String nts = inf.getNts();

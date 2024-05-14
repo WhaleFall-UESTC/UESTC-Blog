@@ -43,6 +43,10 @@ public class Login extends ViewBaseServlet {
             request.setAttribute("authority", user.getAuthority());
             request.setAttribute("id",user.getId());
             System.out.println(user.getAuthority());
+
+            HttpSession session = request.getSession();
+            session.setAttribute("user", user);
+
             super.processTemplate("home", request, response);
         } else {
             request.setAttribute("tipMsg", "email or password is wrong!");
