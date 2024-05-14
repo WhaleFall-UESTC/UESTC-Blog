@@ -93,7 +93,7 @@
     </div>
 
     <div class="content">
-        <div class="article" th:if="${content} == 1" th:each="article : ${articles}">
+        <!-- <div class="article" th:if="${content} == 1" th:each="article : ${articles}">
             <h1 th:text="${article.getTitle()}"></h1>
             <p th:text="${article.getDescription()}"></p>
             <p class="time" th:text="${article.getArticleTime()}"></p>
@@ -102,9 +102,50 @@
         <div class="archive" th:if="${archives} == 1" th:each="subList : ${primaryList}">
             <h1 th:text="${subList.get(0).getArticleTime().substring(0, 7)}"></h1>
             <div th:each="article : ${subList}">
-<!--                <p class="date" th:text="${article.getArticleTime().substring(8, 10)}"></p>-->
                 <h4 th:text="${article.getTitle()}"></h4>
             </div>
+        </div> -->
+
+        <div class="board">
+            <div class="message">
+                <div><img class="headimage" src="img/123.jpg"></div>
+                <div class="divh1"><h1>123</h1></div>
+                <div class="divp">
+                    <p>真是的说起现在的年轻人一有什么事就来凑热闹大白天就到这种地方来消磨时间工作不用干啦做律师的有这么空闲吗这样的话大婶也去当律师算啦大婶儿我年轻时从来没有像你们这样浪费过时间女孩子年纪轻轻的却打扮成这样啊这可怎么办日本的未来会成个什么样子真是的我的儿子也是整整3年都不来个电话</p>
+                </div>
+            </div>
+
+            <div class="message">
+                <div><img class="headimage" src="img/123.jpg"></div>
+                <div class="divh1"><h1>123</h1></div>
+                <div class="divp">
+                    <p>真是的说起现在的年轻人一有什么事就来凑热闹大白天就到这种地方来消磨时间工作不用干啦做律师的有这么空闲吗这样的话大婶也去当律师算啦大婶儿我年轻时从来没有像你们这样浪费过时间女孩子年纪轻轻的却打扮成这样啊这可怎么办日本的未来会成个什么样子真是的我的儿子也是整整3年都不来个电话</p>
+                </div>
+            </div>
+
+            <div class="message">
+                <div><img class="headimage" src="img/123.jpg"></div>
+                <div class="divh1"><h1>123</h1></div>
+                <div class="divp">
+                    <p>真是的说起现在的年轻人一有什么事就来凑热闹大白天就到这种地方来消磨时间工作不用干啦做律师的有这么空闲吗这样的话大婶也去当律师算啦大婶儿我年轻时从来没有像你们这样浪费过时间女孩子年纪轻轻的却打扮成这样啊这可怎么办日本的未来会成个什么样子真是的我的儿子也是整整3年都不来个电话</p>
+                </div>
+            </div>
+
+            <div class="message">
+                <div><img class="headimage" src="img/123.jpg"></div>
+                <div class="divh1"><h1>123</h1></div>
+                <div class="divp">
+                    <p>真是的说起现在的年轻人一有什么事就来凑热闹大白天就到这种地方来消磨时间工作不用干啦做律师的有这么空闲吗这样的话大婶也去当律师算啦大婶儿我年轻时从来没有像你们这样浪费过时间女孩子年纪轻轻的却打扮成这样啊这可怎么办日本的未来会成个什么样子真是的我的儿子也是整整3年都不来个电话</p>
+                </div>
+            </div>
+
+            <!-- <div class="input-box"> -->
+                <form class="input-box" method="post" action="sendMsg">
+                    <textarea rows="3" type="text" id="msg-input" name="msg"></textarea>
+                    <input type="submit" value="留言">
+                </form>
+            <!-- </div> -->
+            <div class="hidediv"><h> </h></div>
         </div>
     </div>
 </body>

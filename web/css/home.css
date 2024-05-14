@@ -1,11 +1,10 @@
-body, .container-right, .container-left, .content, .article, .about-box, .inf, .button-right {
+body, .container-right, .container-left, .content, .article, .about-box, .inf, .button-right .board {
     background-color: rgb(28, 28, 28);
     color: rgb(99, 97, 97);
     font-size: 24px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     overflow-x: hidden;
     scrollbar-width: none;
-
 }
 
 ::-webkit-scrollbar {
@@ -107,7 +106,9 @@ body, .container-right, .container-left, .content, .article, .about-box, .inf, .
     margin-right: 20px;
     margin-top: 30px;
 }
+
 .search-box input[type="search"] {
+    color: white;
     background-color: rgb(28, 28, 28);
     width: 200px;
     padding: 10px 10px 10px 40px;
@@ -178,7 +179,7 @@ body, .container-right, .container-left, .content, .article, .about-box, .inf, .
     overflow: hidden;
 
     display: flex;
-    float: none
+    float: none;
 }
 
 .article {
@@ -264,7 +265,8 @@ body, .container-right, .container-left, .content, .article, .about-box, .inf, .
     background-color: transparent;
     border: transparent;
     cursor: pointer;
-    padding: 0.15rem, 0.3rem;
+    padding-left: 0.15rem;
+    padding-right: 0.3rem;
     border-radius: 10px;
 }
 
@@ -303,26 +305,117 @@ body, .container-right, .container-left, .content, .article, .about-box, .inf, .
 
 
 .board {
-    margin-bottom: 10px;
-    width: 66%;
-
     background-color: transparent;
-    display: inline-block;
+    width: 66%;
+    flex-wrap: wrap;
+    overflow: hidden;
 
-    padding-bottom: 8px;
-    padding-top: 8px;
-    padding-left: 30px;
-    padding-right: 30px;
+    display: flex;
+    float: none;
 }
 
-.input {
+.board .message {
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.message .divh1 {
+    margin-left: 1.8rem;
+    color: #c5c7c7;
     display: flex;
     float: left;
-    overflow: visible;
-    width: 18%;
-    height: 100%;
-    position: fixed;
 
-    background-color: transparent;
-    border: 1px solid #a4a4a4;;
+    margin-bottom: 0;
+}
+
+.divh1 h1 {
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.message .divp {
+    margin-top: 0;
+    display: flex;
+    float: left;
+    margin-left: 5.4rem;
+}
+
+.divp p {
+    margin-top: 0;
+    font-size: 1.2rem;
+    color: #919292;
+}
+
+.message .headimage {
+    border-radius: 50%;
+    border: 1px solid white;
+    object-fit: cover;
+    width: 3.6rem;
+    height: 3.6rem;
+
+    margin-top: 1.2rem;
+    display: flex;
+    float: left;
+}
+
+
+.board .input-box {
+    display: flex;
+    float: inline-end;
+    overflow: visible;
+    width: 46%;
+    height: 10%;
+    position: fixed;
+    bottom: 0;
+    margin-bottom: 40px;
+    border: 1px solid #a4a4a4;
+    border-radius: 10px;
+
+    background-color: rgb(28, 28, 28);
+}
+
+.input-box textarea[type="text"] {
+    margin: 10px 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: rgb(28, 28, 28);
+    color: #c5c7c7;
+
+    font-size: 1rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+    border: 0px solid transparent;
+    overflow-y: auto;
+    width: 100%;
+    cursor: pointer;
+}
+
+.input-box textarea[type="text"]:focus {
+    outline: none;
+    border-color: transparent;
+}
+
+.input-box input[type="submit"] {
+    display:flex;
+    background-color: rgb(35, 35, 35);
+    color: #c5c7c7;
+    border-radius: 10px;
+    border-color: transparent
+}
+
+.input-box input[type="submit"]:hover {
+    cursor: pointer;
+    background-color: #333;
+}
+
+.board .hidediv {
+    display: flex;
+    float: inline-end;
+    overflow: visible;
+    width: 46%;
+    position: fixed;
+    bottom: 0;
+    padding-bottom: 40px;
+    background-color: rgb(28, 28, 28);
 }
