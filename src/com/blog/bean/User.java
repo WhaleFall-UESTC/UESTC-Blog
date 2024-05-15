@@ -17,6 +17,12 @@ public class User {
     public void setId(int id){
         this.id = id;
     }
+    public String getSId() {
+        String sid = Integer.toString(id);
+        String pad = "";
+        if (id < 10) pad = "0";
+        return pad + sid;
+    }
 
     public String getName(){
         return name;
@@ -24,6 +30,7 @@ public class User {
     public void setName(String name){
         this.name = name;
     }
+    public String getConsole() { return name + "'s Console"; }
 
     public String getEmail(){
         return email;

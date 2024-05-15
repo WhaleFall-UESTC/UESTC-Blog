@@ -31,7 +31,7 @@
                 <button class="column-button"><i class="fa fa-th-list icon"></i> Board</button>
             </form>
 
-            <form action="board" method="get">
+            <form action="console" method="get" th:if="${authority != 0}">
                 <button class="column-button"><i class="fa fa-th-list icon"></i> Console</button>
             </form>
         </div>

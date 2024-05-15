@@ -9,18 +9,18 @@
     <link rel="stylesheet" href="css/console.css">
 </head>
 <body>
-    <h1 class="head">WhaleFall's Console</h1>
+    <h1 class="head" th:text="${self.getConsole()}"></h1>
     <div class="box-area">
         <div class="userbox">
             <form method="post" action="updateUser">
                 <h1>个人信息</h1>
                 <div class="info">
                     <p>昵称：</p>
-                    <input type="text" name="name" placeholder="WhaleFall">
+                    <input type="text" name="name" th:placeholder="${self.getName()}">
                 </div>
                 <div class="info">
                     <p>邮箱：</p>
-                    <input type="email" name="email" placeholder="2023080902011@uestc.com">
+                    <input type="text" name="email" th:placeholder="${self.getEmail()}">
                 </div>
                 <div class="info">
                     <p>密码：</p>
@@ -30,12 +30,11 @@
                     <p>头像：</p>
                     <input type="file" name="img" placeholder="新头像">
                 </div>
+                <input type="hidden" th:value="${self.getId()}" name="userId">
                 <input type="submit" value="提交修改">
             </form>
         </div>
 
-
-        
         <div class="articlebox">
             <h1>文章管理</h1>
             <div class="add-new">
@@ -46,81 +45,18 @@
                 </form>
             </div>
         
-            <div class="article">
-                <p>2024-05-12</p>
-                <p class="title">Clannad</p>
+            <div class="article" th:each="article : ${articles}">
+                <p th:text="${article.getArticleTime()}"></p>
+                <p class="title" th:text="${article.getTitle()}"></p>
                 <div class="op">
                     <form method="post" action="deleteArticle">
+                        <input type="hidden" th:value="${article.getId()}">
                         <input type="submit" value="删除">
                     </form>
                     <form method="post" action="updateArticle">
-                        <input type="text" placeholder="title" name="title">
-                        <input type="text" placeholder="descr" name="descr">                            <input type="submit" value="修改">
-                    </form>    
-                </div>
-            </div>
-            <div class="article">
-                <p>2024-05-12</p>
-                <p class="title">Clannad</p>
-                <div class="op">
-                    <form method="post" action="deleteArticle">
-                        <input type="submit" value="删除">
-                    </form>
-                    <form method="post" action="updateArticle">
-                        <input type="text" placeholder="title" name="title">
-                        <input type="text" placeholder="descr" name="descr">                            <input type="submit" value="修改">
-                    </form>    
-                </div>
-            </div>
-            <div class="article">
-                <p>2024-05-12</p>
-                <p class="title">Clannad</p>
-                <div class="op">
-                    <form method="post" action="deleteArticle">
-                        <input type="submit" value="删除">
-                    </form>
-                    <form method="post" action="updateArticle">
-                        <input type="text" placeholder="title" name="title">
-                        <input type="text" placeholder="descr" name="descr">                            <input type="submit" value="修改">
-                    </form>    
-                </div>
-            </div>
-            <div class="article">
-                <p>2024-05-12</p>
-                <p class="title">Clannad</p>
-                <div class="op">
-                    <form method="post" action="deleteArticle">
-                        <input type="submit" value="删除">
-                    </form>
-                    <form method="post" action="updateArticle">
-                        <input type="text" placeholder="title" name="title">
-                        <input type="text" placeholder="descr" name="descr">                            <input type="submit" value="修改">
-                    </form>    
-                </div>
-            </div>
-            <div class="article">
-                <p>2024-05-12</p>
-                <p class="title">Clannad</p>
-                <div class="op">
-                    <form method="post" action="deleteArticle">
-                        <input type="submit" value="删除">
-                    </form>
-                    <form method="post" action="updateArticle">
-                        <input type="text" placeholder="title" name="title">
-                        <input type="text" placeholder="descr" name="descr">                            <input type="submit" value="修改">
-                    </form>    
-                </div>
-            </div>
-            <div class="article">
-                <p>2024-05-12</p>
-                <p class="title">Clannad</p>
-                <div class="op">
-                    <form method="post" action="deleteArticle">
-                        <input type="submit" value="删除">
-                    </form>
-                    <form method="post" action="updateArticle">
-                        <input type="text" placeholder="title" name="title">
-                        <input type="text" placeholder="descr" name="descr">                            <input type="submit" value="修改">
+                        <input type="hidden" th:value="${article.getId()}" name="articleId">
+                        <input type="text" placeholder="标题" name="title">
+                        <input type="text" placeholder="描述" name="descr">                            <input type="submit" value="修改">
                     </form>    
                 </div>
             </div>
@@ -131,82 +67,19 @@
         <div class="manage-box">
             <h1>用户管理</h1>
 
-            <div class="user">
-                <p class="id">02</p>
-                <p class="name">123</p>
+            <div class="user" th:each="u : ${users}">
+                <p class="id" th:text="${u.getId()}"></p>
+                <p class="name" th:text="${u.getName()}"></p>
                 <div class="op1">
                     <div class="authority">
                         <p>修改权限：</p>
                         <form method="post" action="updateAuthority">
-                            <input type="hidden" name="userId" value="1">
+                            <input type="hidden" name="userId" th:value="${u.getId()}">
                             <input type="text" placeholder="1" name="authority">
                             <input type="submit" value="修改">
                         </form>
                         <form method="post" action="deleteUser">
-                            <input class="delete" type="submit" value="删除">
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="user">
-                <p class="id">02</p>
-                <p class="name">123</p>
-                <div class="op1">
-                    <div class="authority">
-                        <p>修改权限：</p>
-                        <form method="post" action="updateAuthority">
-                            <input type="text" placeholder="1" name="authority">
-                            <input type="submit" value="修改">
-                        </form>
-                        <form method="post" action="deleteUser">
-                            <input class="delete" type="submit" value="删除">
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="user">
-                <p class="id">02</p>
-                <p class="name">123</p>
-                <div class="op1">
-                    <div class="authority">
-                        <p>修改权限：</p>
-                        <form method="post" action="updateAuthority">
-                            <input type="text" placeholder="1" name="authority">
-                            <input type="submit" value="修改">
-                        </form>
-                        <form method="post" action="deleteUser">
-                            <input class="delete" type="submit" value="删除">
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="user">
-                <p class="id">02</p>
-                <p class="name">123</p>
-                <div class="op1">
-                    <div class="authority">
-                        <p>修改权限：</p>
-                        <form method="post" action="updateAuthority">
-                            <input type="text" placeholder="1" name="authority">
-                            <input type="submit" value="修改">
-                        </form>
-                        <form method="post" action="deleteUser">
-                            <input class="delete" type="submit" value="删除">
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="user">
-                <p class="id">02</p>
-                <p class="name">123</p>
-                <div class="op1">
-                    <div class="authority">
-                        <p>修改权限：</p>
-                        <form method="post" action="updateAuthority">
-                            <input type="text" placeholder="1" name="authority">
-                            <input type="submit" value="修改">
-                        </form>
-                        <form method="post" action="deleteUser">
+                            <input type="hidden" name="userId" th:value="${u.getId()}">
                             <input class="delete" type="submit" value="删除">
                         </form>
                     </div>
@@ -217,7 +90,7 @@
         <div class="noticebox">
             <h1>更新通知</h1>
             <form method="post" action="updateNts">
-                <textarea rows="7" name="nts" placeholder="暂无通知"></textarea>
+                <textarea rows="7" name="nts" th:placeholder="${nts}"></textarea>
                 <input type="submit" value="提交">
             </form>
         </div>

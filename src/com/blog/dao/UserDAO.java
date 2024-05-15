@@ -178,4 +178,44 @@ public class UserDAO {
 
         return u;
     }
+
+    public List<User> selectall() {
+        Connection con = null;
+        Statement sta = null;
+        ResultSet res = null;
+
+        Msg msg = null;
+        List<User> users = new ArrayList<>();
+        try {
+            con = JDBCUtils.getConnection();
+            sta = con.createStatement();
+            String sql = "select * from users order by id desc;";
+            PreparedStatement pstmt = con.prepareStatement(sql);
+            res = pstmt.executeQuery();
+            while (res.next()) {
+                User u = new User();
+
+                int id = res.getInt("id");
+                String name = res.getString("name");
+                String password = res.getString("password");
+                String email = res.getString("email");
+                int authority = res.getInt("authority");
+
+                u.setId(id);
+                u.setName(name);
+                u.setPassword(password);
+                u.setEmail(email);
+                u.setAuthority(authority);
+
+                users.add(u);
+            }
+        }
+
+        catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtils.close(res, sta, con);
+        }
+        return users;
+    }
 }
