@@ -19,9 +19,9 @@ public class updateArticle extends HttpServlet {
         String title = request.getParameter("title");
         String descr = request.getParameter("descr");
 
-        LocalDateTime now = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        String time = now.format(formatter);
+//        LocalDateTime now = LocalDateTime.now();
+//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+//        String time = now.format(formatter);
 
         System.out.println(title);
 
@@ -34,7 +34,7 @@ public class updateArticle extends HttpServlet {
             System.out.println("descr: " + descr);
             articleDAO.update(id, "descr", descr);
         }
-        articleDAO.update(id, "time", time);
+//        articleDAO.update(id, "time", time);
         response.sendRedirect("console");
     }
 
