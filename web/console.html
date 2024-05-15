@@ -1,18 +1,31 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/js-sha256/src/sha256.js"></script> -->
     <meta charset="UTF-8">
     <title>Console</title>
-    <!-- <link rel="stylesheet" href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css"> -->
     <link rel="stylesheet" href="css/console.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 获取按钮元素
+            var submitButton = document.getElementById('submitButtonUser');
+
+            // 为按钮添加点击事件监听器
+            submitButton.addEventListener('click', function() {
+                // 提交第一个表单
+                document.getElementById('userinfo').submit();
+
+                // 提交第二个表单
+                document.getElementById('userimg').submit();
+            });
+        });
+
+    </script>
 </head>
 <body>
     <h1 class="head" th:text="${self.getConsole()}"></h1>
     <div class="box-area">
         <div class="userbox">
-            <form method="post" action="updateUser">
+            <form method="post" action="updateUser" id="userinfo">
                 <h1>个人信息</h1>
                 <div class="info">
                     <p>昵称：</p>
@@ -26,16 +39,20 @@
                     <p>密码：</p>
                     <input type="password" name="password" placeholder="新密码">
                 </div>
+                <input type="hidden" th:value="${self.getId()}" name="userId">
+            </form>
+            <form enctype="multipart/form-data" method="post" action="updateImg" id="userimg">
                 <div class="info">
                     <p>头像：</p>
-                    <input type="file" name="img" placeholder="新头像">
+                    <input type="file" name="img" placeholder="新头像" >
+                    <input type="hidden" th:value="${self.getName()}" name="name">
                 </div>
                 <input type="hidden" th:value="${self.getId()}" name="userId">
-                <input type="submit" value="提交修改">
             </form>
+            <button id="submitButtonUser">提交修改</button>
         </div>
 
-        <div class="articlebox" th:if="${authority == 3}">
+        <div class="articlebox">
             <h1>文章管理</h1>
             <div class="add-new">
                 <p>添加文章：</p>
@@ -50,7 +67,7 @@
                 <p class="title" th:text="${article.getTitle()}"></p>
                 <div class="op">
                     <form method="post" action="deleteArticle">
-                        <input type="hidden" th:value="${article.getId()}" name="articleId">
+                        <input type="hidden" th:value="${article.getId()}">
                         <input type="submit" value="删除">
                     </form>
                     <form method="post" action="updateArticle">
@@ -63,7 +80,7 @@
         </div>
     </div>   
 
-    <div class="box-area2" th:if="${authority == 3}">
+    <div class="box-area2">
         <div class="manage-box">
             <h1>用户管理</h1>
 
@@ -75,7 +92,7 @@
                         <p>修改权限：</p>
                         <form method="post" action="updateAuthority">
                             <input type="hidden" name="userId" th:value="${u.getId()}">
-                            <input type="text" placeholder="1" name="authority">
+                            <input type="text" th:placeholder="${u.getAuthority()}" name="authority">
                             <input type="submit" value="修改">
                         </form>
                         <form method="post" action="deleteUser">

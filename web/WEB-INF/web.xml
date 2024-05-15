@@ -11,4 +11,8 @@
         <param-name>view-suffix</param-name>
         <param-value>.html</param-value>
     </context-param>
+    <context-param>
+        <param-name>fileRoot</param-name>
+        <param-value>D:\workspace4idea\UESTC-Blog\web\img</param-value>
+    </context-param>
 </web-app>

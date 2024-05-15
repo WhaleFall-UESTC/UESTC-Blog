@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 
 @WebServlet("/login")
 public class Login extends ViewBaseServlet {
@@ -28,29 +29,19 @@ public class Login extends ViewBaseServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         UserDAO userDAO = new UserDAO();
-        User user = userDAO.login(email, password);
-        if(user != null){
-//            MsgDAO msgDAO = new MsgDAO();
-//            List<Msg> msgs = msgDAO.selectall();
-//            NtsDAO ntsDAO = new NtsDAO();
-//            List<Nts> ntss = ntsDAO.selectall();
-//            PreInviterDAO preInviterDAO = new PreInviterDAO();
-//            List<PreInviter> preInviters = preInviterDAO.selectall();
-//
-//            request.setAttribute("msgs", msgs);
-//            request.setAttribute("ntss", ntss);
-//            request.setAttribute("preinviters", preInviters);
-//            request.setAttribute("authority", user.getAuthority());
-//            request.setAttribute("id",user.getId());
-//            System.out.println(user.getAuthority());
 
+        // 通过邮箱寻找用户
+        User user = userDAO.getUserByEmail(email);
+
+        // 检查密码是否输入正确
+        if(user != null && Objects.equals(user.getPassword(), password)){
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
             response.sendRedirect("show");
-
-//            super.processTemplate("home", request, response);
+            System.out.println("User " + user.getName() + " login successfully!");
         } else {
             request.setAttribute("tipMsg", "email or password is wrong!");
+            System.out.println("Login unsuccessfully!");
             super.processTemplate("login", request, response);
         }
     }
