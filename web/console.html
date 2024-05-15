@@ -34,23 +34,18 @@
             </form>
         </div>
 
+
+        
         <div class="articlebox">
             <h1>文章管理</h1>
-            <div class="article">
-                <p>2024-05-12</p>
-                <p class="title">Clannad</p>
-                <div class="op">
-                    <form method="post" action="deleteArticle">
-                        <input type="submit" value="删除">
-                    </form>
-                    <form method="post" action="updateArticle">
-                        <input type="text" placeholder="title" name="title">
-                        <input type="text" placeholder="descr" name="descr">
-                        <input type="submit" value="修改">
-                    </form>    
-                </div>
+            <div class="add-new">
+                <p>添加文章：</p>
+                <form action="addArticle" method="post">
+                    <input type="file" value="添加文章">
+                    <input type="submit" value="提交">
+                </form>
             </div>
-            
+        
             <div class="article">
                 <p>2024-05-12</p>
                 <p class="title">Clannad</p>
@@ -60,8 +55,7 @@
                     </form>
                     <form method="post" action="updateArticle">
                         <input type="text" placeholder="title" name="title">
-                        <input type="text" placeholder="descr" name="descr">
-                        <input type="submit" value="修改">
+                        <input type="text" placeholder="descr" name="descr">                            <input type="submit" value="修改">
                     </form>    
                 </div>
             </div>
@@ -74,8 +68,7 @@
                     </form>
                     <form method="post" action="updateArticle">
                         <input type="text" placeholder="title" name="title">
-                        <input type="text" placeholder="descr" name="descr">
-                        <input type="submit" value="修改">
+                        <input type="text" placeholder="descr" name="descr">                            <input type="submit" value="修改">
                     </form>    
                 </div>
             </div>
@@ -88,12 +81,10 @@
                     </form>
                     <form method="post" action="updateArticle">
                         <input type="text" placeholder="title" name="title">
-                        <input type="text" placeholder="descr" name="descr">
-                        <input type="submit" value="修改">
+                        <input type="text" placeholder="descr" name="descr">                            <input type="submit" value="修改">
                     </form>    
                 </div>
             </div>
-
             <div class="article">
                 <p>2024-05-12</p>
                 <p class="title">Clannad</p>
@@ -103,14 +94,133 @@
                     </form>
                     <form method="post" action="updateArticle">
                         <input type="text" placeholder="title" name="title">
-                        <input type="text" placeholder="descr" name="descr">
-                        <input type="submit" value="修改">
+                        <input type="text" placeholder="descr" name="descr">                            <input type="submit" value="修改">
+                    </form>    
+                </div>
+            </div>
+            <div class="article">
+                <p>2024-05-12</p>
+                <p class="title">Clannad</p>
+                <div class="op">
+                    <form method="post" action="deleteArticle">
+                        <input type="submit" value="删除">
+                    </form>
+                    <form method="post" action="updateArticle">
+                        <input type="text" placeholder="title" name="title">
+                        <input type="text" placeholder="descr" name="descr">                            <input type="submit" value="修改">
+                    </form>    
+                </div>
+            </div>
+            <div class="article">
+                <p>2024-05-12</p>
+                <p class="title">Clannad</p>
+                <div class="op">
+                    <form method="post" action="deleteArticle">
+                        <input type="submit" value="删除">
+                    </form>
+                    <form method="post" action="updateArticle">
+                        <input type="text" placeholder="title" name="title">
+                        <input type="text" placeholder="descr" name="descr">                            <input type="submit" value="修改">
                     </form>    
                 </div>
             </div>
         </div>
-
-        
     </div>   
+
+    <div class="box-area2">
+        <div class="manage-box">
+            <h1>用户管理</h1>
+
+            <div class="user">
+                <p class="id">02</p>
+                <p class="name">123</p>
+                <div class="op1">
+                    <div class="authority">
+                        <p>修改权限：</p>
+                        <form method="post" action="updateAuthority">
+                            <input type="hidden" name="userId" value="1">
+                            <input type="text" placeholder="1" name="authority">
+                            <input type="submit" value="修改">
+                        </form>
+                        <form method="post" action="deleteUser">
+                            <input class="delete" type="submit" value="删除">
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="user">
+                <p class="id">02</p>
+                <p class="name">123</p>
+                <div class="op1">
+                    <div class="authority">
+                        <p>修改权限：</p>
+                        <form method="post" action="updateAuthority">
+                            <input type="text" placeholder="1" name="authority">
+                            <input type="submit" value="修改">
+                        </form>
+                        <form method="post" action="deleteUser">
+                            <input class="delete" type="submit" value="删除">
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="user">
+                <p class="id">02</p>
+                <p class="name">123</p>
+                <div class="op1">
+                    <div class="authority">
+                        <p>修改权限：</p>
+                        <form method="post" action="updateAuthority">
+                            <input type="text" placeholder="1" name="authority">
+                            <input type="submit" value="修改">
+                        </form>
+                        <form method="post" action="deleteUser">
+                            <input class="delete" type="submit" value="删除">
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="user">
+                <p class="id">02</p>
+                <p class="name">123</p>
+                <div class="op1">
+                    <div class="authority">
+                        <p>修改权限：</p>
+                        <form method="post" action="updateAuthority">
+                            <input type="text" placeholder="1" name="authority">
+                            <input type="submit" value="修改">
+                        </form>
+                        <form method="post" action="deleteUser">
+                            <input class="delete" type="submit" value="删除">
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="user">
+                <p class="id">02</p>
+                <p class="name">123</p>
+                <div class="op1">
+                    <div class="authority">
+                        <p>修改权限：</p>
+                        <form method="post" action="updateAuthority">
+                            <input type="text" placeholder="1" name="authority">
+                            <input type="submit" value="修改">
+                        </form>
+                        <form method="post" action="deleteUser">
+                            <input class="delete" type="submit" value="删除">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="noticebox">
+            <h1>更新通知</h1>
+            <form method="post" action="updateNts">
+                <textarea rows="7" name="nts" placeholder="暂无通知"></textarea>
+                <input type="submit" value="提交">
+            </form>
+        </div>
+    </div>
 </body>
 </html>
