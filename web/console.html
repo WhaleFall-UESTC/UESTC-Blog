@@ -50,7 +50,7 @@
                 <p class="title" th:text="${article.getTitle()}"></p>
                 <div class="op">
                     <form method="post" action="deleteArticle">
-                        <input type="hidden" th:value="${article.getId()}">
+                        <input type="hidden" th:value="${article.getId()}" name="articleId">
                         <input type="submit" value="删除">
                     </form>
                     <form method="post" action="updateArticle">

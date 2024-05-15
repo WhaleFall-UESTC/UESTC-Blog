@@ -63,18 +63,16 @@ public class ArticleDAO {
         return false;
     }
 
-    public boolean update(int Id, Article new_article) {
+    public boolean update(int Id, String column, String newData) {
         Connection con = null;
         PreparedStatement pstmt = null;
 
         try {
             con = JDBCUtils.getConnection();
-            String sql = "UPDATE articles SET title = ?, descr = ?, time = ? WHERE id = ?;";
+            String sql = "UPDATE articles SET " + column + " = ? WHERE id = ?;";
             pstmt = con.prepareStatement(sql);
-            pstmt.setString(1, new_article.getTitle());
-            pstmt.setString(2, new_article.getDescription());
-            pstmt.setString(3, new_article.getArticleTime());
-            pstmt.setInt(4, Id);
+            pstmt.setString(1, newData);
+            pstmt.setInt(2, Id);
 
             int affectedRows = pstmt.executeUpdate();
         } catch (SQLException e) {
@@ -84,6 +82,7 @@ public class ArticleDAO {
         }
         return false;
     }
+
 
     public boolean delete(int Id) {
         Connection con = null;
