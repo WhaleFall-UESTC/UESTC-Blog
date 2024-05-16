@@ -66,9 +66,8 @@ public class NtsDAO {
         return null;
     }
 
-    public boolean send(Nts inf)
+    public boolean send(String nts)
     {
-        String nts = inf.getNts();
         Connection con = null;
         Statement sta = null;
         ResultSet res = null;

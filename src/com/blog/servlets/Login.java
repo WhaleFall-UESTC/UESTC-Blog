@@ -1,12 +1,6 @@
 package com.blog.servlets;
 
-import com.blog.bean.Msg;
-import com.blog.bean.Nts;
-import com.blog.bean.PreInviter;
 import com.blog.bean.User;
-import com.blog.dao.MsgDAO;
-import com.blog.dao.NtsDAO;
-import com.blog.dao.PreInviterDAO;
 import com.blog.dao.UserDAO;
 import com.blog.myssm.myspringmvc.ViewBaseServlet;
 
@@ -16,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.List;
 import java.util.Objects;
 
 @WebServlet("/login")

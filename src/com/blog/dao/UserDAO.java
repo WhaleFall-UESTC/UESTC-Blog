@@ -198,11 +198,12 @@ public class UserDAO {
             //1.获取连接
             con = JDBCUtils.getConnection();
             //2.定义sql
-            String deleteSql = "delete from users where id =?";
+            String deleteSql = "delete from users where id =" + id;
             //3.获取执行sql的对象
             sta = con.createStatement();
-            //4.执行插入
-            res = sta.executeQuery(deleteSql);
+            //4.执行刪除
+            int count = sta.executeUpdate(deleteSql);
+            System.out.println("count = " + count);
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -220,8 +221,9 @@ public class UserDAO {
             String name = user.getName();
             String password = user.getPassword();
             String email = user.getEmail();
+            int authority = user.getAuthority();
             //2.定义sql
-            String updateSql = "update users set name='" + name + "',\npassword='" + password + "',\nemail='" + email + "'\nwhere id="+ id;
+            String updateSql = "update users set name='" + name + "',\npassword='" + password + "',\nemail='" + email + "',\nauthority='"+ authority+ "'\nwhere id="+ id;
             //3.获取执行sql的对象
             PreparedStatement pre = con.prepareStatement(updateSql);
 

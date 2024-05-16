@@ -1,7 +1,6 @@
 package com.blog.servlets;
 
 import com.blog.bean.*;
-import com.blog.bean.PreInviter;
 import com.blog.dao.*;
 import com.blog.myssm.myspringmvc.ViewBaseServlet;
 
@@ -21,12 +20,9 @@ public class Show extends ViewBaseServlet {
         List<Msg> msgs = msgDAO.latest5Msg();
         NtsDAO ntsDAO = new NtsDAO();
         String nts = ntsDAO.latestNts();
-        PreInviterDAO preInviterDAO = new PreInviterDAO();
-        List<PreInviter> preInviters = preInviterDAO.selectall();
 
         request.setAttribute("msgs", msgs);
         request.setAttribute("nts", nts);
-        request.setAttribute("preinviters", preInviters);
 
         HttpSession session = request.getSession();
         User u = (User) session.getAttribute("user");

@@ -1,11 +1,9 @@
 package com.blog.servlets;
 
 import com.blog.bean.Msg;
-import com.blog.bean.PreInviter;
 import com.blog.bean.User;
 import com.blog.dao.MsgDAO;
 import com.blog.dao.NtsDAO;
-import com.blog.dao.PreInviterDAO;
 import com.blog.myssm.myspringmvc.ViewBaseServlet;
 
 import javax.servlet.ServletException;
@@ -27,12 +25,9 @@ public class Board extends ViewBaseServlet {
         List<Msg> msgs = msgDAO.latest5Msg();
         NtsDAO ntsDAO = new NtsDAO();
         String nts = ntsDAO.latestNts();
-        PreInviterDAO preInviterDAO = new PreInviterDAO();
-        List<PreInviter> preInviters = preInviterDAO.selectall();
 
         request.setAttribute("msgs", msgs);
         request.setAttribute("nts", nts);
-        request.setAttribute("preinviters", preInviters);
 
         HttpSession session = request.getSession();
         User u = (User) session.getAttribute("user");
