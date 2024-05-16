@@ -11,8 +11,8 @@
             var submitButton = document.getElementById('submitButtonUser');
 
             // 为按钮添加点击事件监听器
-            submitButton.addEventListener('click', function() {
-                encryptPassword();
+            submitButton.addEventListener('click', async function() {
+                await encryptPassword();
 
                 var userinfo_is_set = true;
                 var userimg_is_set = true;

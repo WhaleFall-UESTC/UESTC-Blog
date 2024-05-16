@@ -24,7 +24,7 @@ public class UpdateUser extends ViewBaseServlet {
         String id = request.getParameter("userId");
         String name = request.getParameter("name");
         String email = request.getParameter("email");
-        String password = request.getParameter("password");
+        String password = request.getParameter("password");status
         User user = new User();
         UserDAO userDAO = new UserDAO();
         user = userDAO.getUserById(Integer.parseInt(id));
