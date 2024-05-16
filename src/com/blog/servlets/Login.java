@@ -23,8 +23,13 @@ public class Login extends ViewBaseServlet {
         String password = request.getParameter("password");
         UserDAO userDAO = new UserDAO();
 
+        System.out.println(email + '\n' + password);
+
         // 通过邮箱寻找用户
         User user = userDAO.getUserByEmail(email);
+        if (user != null) {
+            System.out.println(user.getPassword());
+        }
 
         // 检查密码是否输入正确
         if(user != null && Objects.equals(user.getPassword(), password)){

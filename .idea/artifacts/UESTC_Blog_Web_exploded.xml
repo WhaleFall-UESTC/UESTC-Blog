@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="UESTC-Blog:Web exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/UESTC_Blog_Web_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="UESTC-Blog/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="UESTC-Blog" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

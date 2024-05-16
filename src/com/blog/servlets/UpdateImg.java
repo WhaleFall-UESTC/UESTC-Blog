@@ -66,11 +66,15 @@ public class UpdateImg extends ViewBaseServlet {
         }
 
         // 返回对应的self
-        UserDAO userDAO = new UserDAO();
-        User user = userDAO.getUserByName(name);
-        session.setAttribute("self", user);
+//        UserDAO userDAO = new UserDAO();
+//        User user = userDAO.getUserByName(name);
+//        session.setAttribute("self", user);
 
-        response.sendRedirect("console");
+        String set = request.getParameter("set");
+        if (set !=null && set.equals("0")) {
+            System.out.println("Only update image files");
+            response.sendRedirect("console");
+        }
     }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

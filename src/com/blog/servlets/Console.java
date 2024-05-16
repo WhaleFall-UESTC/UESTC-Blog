@@ -25,6 +25,7 @@ public class Console extends ViewBaseServlet {
 
         HttpSession session = request.getSession();
         User u = (User) session.getAttribute("user");
+        System.out.println("self in consolr: " + u.getName());
         if (u == null || u.getAuthority() == 0) {
             response.sendRedirect("login.html");
         } else {

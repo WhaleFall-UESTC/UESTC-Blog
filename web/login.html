@@ -10,19 +10,43 @@
     <link rel="stylesheet" href="css/login.css">
     <title>UESTC-Blog</title>
 </head>
+<script>
+    async function encryptPassword() {
+        const password = document.getElementById('passwd');
+        const email = document.getElementById('email');
 
+        if (email.value == "") {
+            alert("请输入邮箱!");
+            email.focus();
+            return;
+        }
+        if (password.value == "") {
+            alert("请输入密码!");
+            password.focus();
+            return;
+        }
+
+        const encoded = new TextEncoder().encode(password.value);
+        const hashBuffer = await crypto.subtle.digest('SHA-256', encoded);
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        console.log(hashHex);
+        document.getElementById('password').value = hashHex;
+        document.getElementById('loginForm').submit();
+    }
+</script>
 <body>
-<form action="login" class="login">
+<form action="login" class="login" id="loginForm">
     <p>Login</p>
     <input id="email" type="text" placeholder="email" required="required" name="email" autocapitalize="off"
            onkeyup="this.value=this.value.replace(/\s+/g,'')"/>
-    <input id="password" type="password" placeholder="password" required="required" name="password" autocapitalize="off"
+    <input id="passwd" type="password" placeholder="password" required="required" autocapitalize="off"
            onkeyup="this.value=this.value.replace(/\s+/g,'')"/>
     <p class="tip" th:text="${tipMsg}"></p>
     <br th:if="${errorMsg == null}">
-    <input type="submit" class="btn" value="Submit">
+    <input type="hidden" id="password" name="password">
 </form>
-
+<input type="submit" class="btn" value="Submit" onclick="encryptPassword()">
 </body>
 
 </html>

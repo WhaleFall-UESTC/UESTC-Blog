@@ -26,6 +26,8 @@ public class SendMsg extends ViewBaseServlet {
         User user = (User) session.getAttribute("user");
         int userId = user.getId();
 
+        System.out.println("User " + userId + " send msg: " + msg);
+
         Msg m5g = new Msg();
         m5g.setMsg(msg);
         m5g.setUserId(userId);

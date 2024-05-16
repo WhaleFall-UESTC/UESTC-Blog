@@ -43,8 +43,9 @@ public class UpdateUser extends ViewBaseServlet {
 
         userDAO.update(Integer.parseInt(id), user);
 
-        session.setAttribute("self", user);
-        super.processTemplate("console", request, response);
+        session.setAttribute("user", user);
+        System.out.println("self: " + user.getName());
+        response.sendRedirect("console");
     }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

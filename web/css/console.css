@@ -112,7 +112,14 @@
     color: rgb(51, 82, 219);
 }
 
-
+.userbox .btn {
+    background-color: transparent;
+    border: 1px solid #a4a4a4;
+    border-radius: 2px;
+    width: 80%;
+    color: rgb(215, 217, 220);
+    margin-left: 10%;
+}
 
 .articlebox {
     /* align-self: flex-start; */

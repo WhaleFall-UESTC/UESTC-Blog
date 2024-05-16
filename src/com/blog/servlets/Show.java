@@ -29,6 +29,7 @@ public class Show extends ViewBaseServlet {
         if (u == null) {
             request.setAttribute("authority", 0);
         } else {
+//            request.setAttribute("self", u);
             request.setAttribute("authority", u.getAuthority());
             System.out.println("User Authority: " + u.getAuthority());
         }

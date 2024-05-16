@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Console</title>
     <link rel="stylesheet" href="css/console.css">
+    <script type="text/javascript" src="http://mat1.gtimg.com/libs/jquery2/2.2.0/jquery.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // 获取按钮元素
@@ -11,13 +12,52 @@
 
             // 为按钮添加点击事件监听器
             submitButton.addEventListener('click', function() {
-                // 提交第一个表单
-                document.getElementById('userinfo').submit();
+                encryptPassword();
+
+                var userinfo_is_set = true;
+                var userimg_is_set = true;
+
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const passwd = document.getElementById('passwd').value;
+                if (passwd == "" && name == "" && email == "") {
+                    document.getElementById("userinfo_is_set").value = 0;
+                    userinfo_is_set = false;
+                }
+
+                // const file = document.getElementById('img');
+                if ($("#img").val() == "") {
+                    console.log("img not upload");
+                    // document.getElementById('userimg_is_set').value = 0;
+                    userimg_is_set = false;
+                }
+
+                if (!userimg_is_set && !userinfo_is_set) {
+                    return;
+                }
+
+                if (userinfo_is_set) {
+                    console.log("update info");
+                    document.getElementById('userinfo').submit();
+                }
 
                 // 提交第二个表单
-                document.getElementById('userimg').submit();
+                if (userimg_is_set) {
+                    console.log("update img");
+                    document.getElementById('userimg').submit();
+                }
             });
         });
+
+        async function encryptPassword() {
+            const password = document.getElementById('passwd');
+            const encoded = new TextEncoder().encode(password.value);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', encoded);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+            console.log(hashHex);
+            document.getElementById('password').value = hashHex;
+        }
     </script>
 </head>
 <body>
@@ -28,27 +68,36 @@
                 <h1>个人信息</h1>
                 <div class="info">
                     <p>昵称：</p>
-                    <input type="text" name="name" th:placeholder="${self.getName()}">
+                    <input type="text" id="name" name="name" th:placeholder="${self.getName()}"
+                           autocapitalize="off"
+                           onkeyup="this.value=this.value.replace(/\s+/g,'')">
                 </div>
                 <div class="info">
                     <p>邮箱：</p>
-                    <input type="text" name="email" th:placeholder="${self.getEmail()}">
+                    <input type="text" id="email" name="email" th:placeholder="${self.getEmail()}"
+                           autocapitalize="off"
+                           onkeyup="this.value=this.value.replace(/\s+/g,'')">
                 </div>
                 <div class="info">
                     <p>密码：</p>
-                    <input type="password" name="password" placeholder="新密码">
+                    <input type="password" id="passwd" placeholder="新密码"
+                           autocapitalize="off"
+                           onkeyup="this.value=this.value.replace(/\s+/g,'')">
                 </div>
                 <input type="hidden" th:value="${self.getId()}" name="userId">
+                <input type="hidden" name="password" id="password">
+<!--                <input type="hidden" value="1" id="userimg_is_set">-->
             </form>
             <form enctype="multipart/form-data" method="post" action="updateImg" id="userimg">
                 <div class="info">
                     <p>头像：</p>
-                    <input type="file" name="img" placeholder="新头像" >
+                    <input type="file" id="img" name="img" placeholder="新头像" >
                     <input type="hidden" th:value="${self.getName()}" name="name">
                 </div>
                 <input type="hidden" th:value="${self.getId()}" name="userId">
+                <input type="hidden" value="1" id="userinfo_is_set" name="set">
             </form>
-            <button id="submitButtonUser">提交修改</button>
+            <button id="submitButtonUser" class="btn">提交修改</button>
         </div>
 
         <div class="articlebox">
