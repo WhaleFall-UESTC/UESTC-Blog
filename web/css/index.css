@@ -1,6 +1,12 @@
 h1, h2, h3, body, .title {
     margin-left: 8%;
     margin-right: 8%;
+    overflow-x: hidden;
+    scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
 
 body {

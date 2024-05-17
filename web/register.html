@@ -42,7 +42,8 @@
     }
 </script>
 <body>
-<form action="register" class="register" id="registerForm">
+<div class="register">
+<form action="register" id="registerForm">
     <p>Register</p>
     <input id="name" type="text" placeholder="name" required="required" name="name" autocapitalize="off"
            onkeyup="this.value=this.value.replace(/\s+/g,'')"/>
@@ -51,10 +52,11 @@
     <input id="passwd" type="password" placeholder="password" required="required" autocapitalize="off"
            onkeyup="this.value=this.value.replace(/\s+/g,'')"/>
     <p class="tip" th:text="${tipMsg}"></p>
-    <br th:if="${errorMsg == null}">
+<!--    <br th:if="${errorMsg == null}">-->
     <input type="hidden" id="password" name="password">
 </form>
 <input type="submit" class="btn" value="Submit" onclick="encryptPassword()">
+</div>
 </body>
 
 </html>

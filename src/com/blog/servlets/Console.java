@@ -30,6 +30,7 @@ public class Console extends ViewBaseServlet {
             response.sendRedirect("login.html");
         } else {
             request.setAttribute("self", u);
+            request.setAttribute("authority", u.getAuthority());
         }
 
         NtsDAO ntsDAO = new NtsDAO();

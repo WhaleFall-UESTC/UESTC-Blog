@@ -59,13 +59,13 @@
 </div>
 
 <div class="content">
-    <div class="article" th:if="${content} == 1" th:each="article : ${articles}">
+    <div class="article" th:if="${content == 1}" th:each="article : ${articles}">
         <h1 th:text="${article.getTitle()}"></h1>
         <p th:text="${article.getDescription()}"></p>
         <p class="time" th:text="${article.getArticleTime()}"></p>
     </div>
 
-    <div class="archive" th:if="${archives} == 1" th:each="subList : ${primaryList}">
+    <div class="archive" th:if="${archives == 1}" th:each="subList : ${primaryList}">
         <h1 th:text="${subList.get(0).getArticleTime().substring(0, 7)}"></h1>
         <div th:each="article : ${subList}">
             <h4 th:text="${article.getTitle()}"></h4>
@@ -73,7 +73,7 @@
     </div>
 
 
-    <div class="message" th:if="${board} == 1" th:each="msg : ${msgs_all}">
+    <div class="message" th:if="${board == 1}" th:each="msg : ${msgs_all}">
         <div><img class="headimage" th:src="${msg.getImgPath()}"></div>
         <div class="divh1"><h1 th:text="${msg.getUserName()}"></h1></div>
         <div class="divp">

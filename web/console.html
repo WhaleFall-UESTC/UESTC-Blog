@@ -100,7 +100,7 @@
             <button id="submitButtonUser" class="btn">提交修改</button>
         </div>
 
-        <div class="articlebox">
+        <div class="articlebox" th:if="${authority == 3}">
             <h1>文章管理</h1>
             <div class="add-new">
                 <p>添加文章：</p>
@@ -126,9 +126,9 @@
                 </div>
             </div>
         </div>
-    </div>   
+    </div>
 
-    <div class="box-area2">
+    <div class="box-area2" th:if="${authority == 3}">
         <div class="manage-box">
             <h1>用户管理</h1>
 

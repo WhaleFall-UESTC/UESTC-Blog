@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/login.css">
-    <title>UESTC-Blog</title>
+    <title>Login</title>
 </head>
 <script>
     async function encryptPassword() {
@@ -36,7 +36,8 @@
     }
 </script>
 <body>
-<form action="login" class="login" id="loginForm">
+<div class="login">
+<form action="login" id="loginForm">
     <p>Login</p>
     <input id="email" type="text" placeholder="email" required="required" name="email" autocapitalize="off"
            onkeyup="this.value=this.value.replace(/\s+/g,'')"/>
@@ -47,6 +48,7 @@
     <input type="hidden" id="password" name="password">
 </form>
 <input type="submit" class="btn" value="Submit" onclick="encryptPassword()">
+</div>
 </body>
 
 </html>
