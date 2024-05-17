@@ -40,8 +40,10 @@ public class Show extends ViewBaseServlet {
         request.setAttribute("articles", articles);
         request.setAttribute("content", 1);
 
+//        System.out.println(getServletContext().getRealPath("/img"));
         super.processTemplate("home", request, response);
     }
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request, response);

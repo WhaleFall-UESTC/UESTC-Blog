@@ -5,6 +5,7 @@ import com.blog.bean.User;
 import com.blog.dao.UserDAO;
 import com.blog.myssm.myspringmvc.ViewBaseServlet;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
@@ -34,12 +35,11 @@ public class UpdateImg extends ViewBaseServlet {
         Path filePath;
 
         int dot = upfilename.lastIndexOf(".");
-        String base = upfilename.substring(0, dot);
         String ext = upfilename.substring(dot + 1);
         String newUpfile = name + "." + ext;
 
         while (true) {
-            filePath = Paths.get(fileRoot + "\\" + newUpfile);
+            filePath = Paths.get(fileRoot, newUpfile);
             if (Files.exists(filePath)) {
                 // 先删除原有头像
                 try {
@@ -53,6 +53,13 @@ public class UpdateImg extends ViewBaseServlet {
                 try {
                     System.out.println("Try upload " + fileRoot + "\\" + newUpfile);
                     part.write(fileRoot + "\\" + newUpfile);
+
+                    String realRoot = getServletContext().getRealPath("img");
+                    Path realPath = Paths.get(realRoot, newUpfile);
+                    if (Files.exists(realPath)) {
+                        Files.delete(realPath);
+                    }
+                    Files.copy(Paths.get(fileRoot, newUpfile), realPath);
                     break;
                 } catch (IOException e) {
                     if (!Files.exists(rootPath)) {
@@ -64,6 +71,8 @@ public class UpdateImg extends ViewBaseServlet {
                 }
             }
         }
+
+
 
         // 返回对应的self
 //        UserDAO userDAO = new UserDAO();

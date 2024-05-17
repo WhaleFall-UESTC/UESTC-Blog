@@ -203,7 +203,15 @@ public class UserDAO {
             sta = con.createStatement();
             //4.执行刪除
             int count = sta.executeUpdate(deleteSql);
-            System.out.println("count = " + count);
+
+            System.out.println("delete user count = " + count);
+
+            deleteSql = "delete from msgs where id =" + id;
+            //3.获取执行sql的对象
+            sta = con.createStatement();
+            //4.执行刪除
+            count = sta.executeUpdate(deleteSql);
+
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
