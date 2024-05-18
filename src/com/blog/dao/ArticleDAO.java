@@ -40,18 +40,49 @@ public class ArticleDAO {
         return articles;
     }
 
+    public Article select(int Id) {
+        Article article = new Article();
+        Connection con = null;
+        PreparedStatement pstmt = null;
+        ResultSet res = null;
+
+        try {
+            con = JDBCUtils.getConnection();
+            String sql = "select * from articles where id = ?";
+            pstmt = con.prepareStatement(sql);
+            pstmt.setInt(1, Id);
+            res = pstmt.executeQuery();
+
+            if (res.next()) {
+                int id = res.getInt("id");
+                String title = res.getString("title");
+                String descr = res.getString("descr");
+                String time = res.getString("time");
+                String content = res.getString("content");
+                article.setArticle(id, title, descr, time);
+                article.setContent(content);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtils.close(res, pstmt, con);
+        }
+
+        return article;
+    }
+
     public boolean insert(Article article) {
         Connection con = null;
         PreparedStatement pstmt = null;
 
         try {
             con = JDBCUtils.getConnection();
-            String sql = "INSERT INTO articles (id, title, descr, time) VALUES (?, ?, ?, ?);";
+            String sql = "INSERT INTO articles (title, descr, time, content) VALUES (?, ?, ?, ?);";
             pstmt = con.prepareStatement(sql);
-            pstmt.setInt(1, article.getId());
-            pstmt.setString(2, article.getTitle());
-            pstmt.setString(3, article.getDescription());
-            pstmt.setString(4, article.getArticleTime());
+            pstmt.setString(1, article.getTitle());
+            pstmt.setString(2, article.getDescription());
+            pstmt.setString(3, article.getArticleTime());
+            pstmt.setString(4, article.getContent());
 
             int affectedRows = pstmt.executeUpdate();
             return affectedRows > 0;
@@ -205,4 +236,30 @@ public class ArticleDAO {
         }
         return yearMonths;
     }
+
+    public String getContextById(int id) {
+        Connection con = null;
+        PreparedStatement pstmt = null;
+        ResultSet res = null;
+        String content = "";
+
+        try {
+            con = JDBCUtils.getConnection();
+            String sql = "select content from articles where id = ?;";
+            pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, String.valueOf(id));
+            res = pstmt.executeQuery();
+
+            if (res.next()) {
+                content = res.getString("content");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtils.close(res, pstmt, con);
+        }
+
+        return content;
+    }
+
 }

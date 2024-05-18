@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New Article</title>
+    <link rel="stylesheet" href="css/article.css">
+</head>
+<script>
+    function submitArticle() {
+        const title = document.getElementById('title');
+        const descr = document.getElementById('descr');
+        const content = document.getElementById('content');
+
+        if (title.value == "") {
+            alter("输入标题");
+            title.focus();
+            return;
+        }
+
+        if (descr.value == "") {
+            alter("输入描述");
+            descr.focus();
+            return;
+        }
+
+        if (content.value == "") {
+            alter("输入文章内容");
+            content.focus();
+            return;
+        }
+
+        document.getElementById('form').submit();
+    }
+</script>
+<body>
+    <h1>新建文章</h1>
+    <form action="newArticle" method="post" id="form">
+        <div class="line">
+            <h1>标题：</h1>
+            <input type="text" name="title" id="title">
+        </div>
+        <div class="line">
+            <h1>描述：</h1>
+            <input type="text" name="descr" id="descr">
+        </div>
+
+        <h2>文章内容：</h2>
+        <textarea name="content" id="content">
+        </textarea>
+        <br>
+    </form>
+    <button onclick="submitArticle()">提交</button>
+</body>
+</html>

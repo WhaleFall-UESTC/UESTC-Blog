@@ -8,9 +8,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/register.css">
-    <title>UESTC-Blog</title>
+    <title>Register</title>
 </head>
 <script>
+    var button = document.getElementById('button');
+
+    document.addEventListener('keydown', function(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            button.click();
+        }
+    });
+
     async function encryptPassword() {
         const password = document.getElementById('passwd');
         const email = document.getElementById('email');
@@ -55,7 +64,7 @@
 <!--    <br th:if="${errorMsg == null}">-->
     <input type="hidden" id="password" name="password">
 </form>
-<input type="submit" class="btn" value="Submit" onclick="encryptPassword()">
+<input type="submit" class="btn" value="Submit" onclick="encryptPassword()" id="button">
 </div>
 </body>
 

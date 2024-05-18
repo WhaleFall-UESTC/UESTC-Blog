@@ -1,0 +1,107 @@
+body {
+    background-color: rgb(28, 28, 28);
+    color: #c6c9c9;
+    /*color: rgb(215, 217, 220);*/
+    font-size: 1rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+    margin-left: 25%;
+    width: 70%;
+    height: 100%;
+
+    overflow-x: hidden;
+    scrollbar-width: none;
+
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+h1 {
+    width: 100%;
+    margin-bottom: 1.5rem;
+    font-size: 2.4rem;
+}
+
+form h2 {
+    font-size: 1.4rem;
+    font-weight: bold;
+    width: 100%;
+    margin-bottom: 20px;
+    margin-top: 2.5rem;
+}
+
+form textarea {
+    background-color: transparent;
+    border: 1px solid #a4a4a4;
+    color: #c6c9c9;
+    width: 32rem;
+    height: 15rem;
+
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    font-size: 1.1rem;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+}
+
+button {
+    margin-left: 32rem;
+    border: none;
+    font-size: 1rem;
+    size: 1.1rem 1.1rem;
+    background-color: transparent;
+    color: rgb(125, 161, 216);
+    margin-top:10px;
+}
+
+button:hover {
+    color:rgb(51, 82, 219);
+}
+
+.line {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+
+    height: 3rem;
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
+}
+
+.line h1 {
+    width: 30%;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.line input[type="text"] {
+    margin-right: 10rem;
+    width: 70%;
+    background-color: transparent;
+    border: 1px solid #a4a4a4;
+    border-top-style: none;
+    border-left-style: none;
+    border-right-style: none;
+    outline: none;
+
+    font-size: 1.3rem;
+    height: 1.7rem;
+    color: #c6c9c9;
+    bottom: 0;
+
+    margin-top: 1.1rem;
+    padding-bottom: 8px;
+}

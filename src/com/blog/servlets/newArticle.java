@@ -1,5 +1,6 @@
 package com.blog.servlets;
 
+import com.blog.bean.Article;
 import com.blog.dao.ArticleDAO;
 
 import javax.servlet.ServletException;
@@ -9,24 +10,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/deleteArticle")
-public class deleteArticle extends HttpServlet {
-    @Override
+@WebServlet("/newArticle")
+public class newArticle extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String ID = request.getParameter("articleId");
-        int id;
-        if (ID != null && !ID.equals("")) {
-            id = Integer.parseInt(ID);
-        } else {
-            System.out.println("id is empty when delete");
-            return;
-        }
+        request.setCharacterEncoding("utf-8");
+        response.setCharacterEncoding("utf-8");
+        response.setContentType("text/html;charset=utf-8");
+
+        String title = request.getParameter("title");
+        String content = request.getParameter("content");
+        String descr = request.getParameter("descr");
+
+        Article article = new Article();
+        article.newArticle(title, descr, content);
         ArticleDAO articleDAO = new ArticleDAO();
-        articleDAO.delete(id);
+        articleDAO.insert(article);
+
         response.sendRedirect("console");
     }
 
-    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request, response);
     }
