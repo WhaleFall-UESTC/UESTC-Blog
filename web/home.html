@@ -13,6 +13,10 @@
     <link rel="stylesheet" href="css/highlight.css">
     <!--<link rel="stylesheet" href="css/bootstrap.min.css">-->
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            change();
+        });
+
         //初始化高亮d代码
         hljs.highlightAll();
         marked.setOptions({
@@ -136,8 +140,9 @@
             <p th:text="${article.getDescription()}"></p>
             <p class="time" th:text="${article.getArticleTime()}"></p>
             <input id="context" type="hidden" th:value="${article.getContent()}">
-            <div id="box" style="background-color: rgb(28,28,28);"></div>
-            <button onclick="change()">unfold</button>
+            <div id="box" style="background-color: rgb(28,28,28);">
+            </div>
+<!--            <button onclick="change()">unfold</button>-->
         </div>
     </div>
 </body>

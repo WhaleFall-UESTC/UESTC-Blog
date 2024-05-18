@@ -15,6 +15,10 @@ import java.time.format.DateTimeFormatter;
 public class updateArticle extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("utf-8");
+        response.setCharacterEncoding("utf-8");
+        response.setContentType("text/html;charset=utf-8");
+
         int id = Integer.parseInt(request.getParameter("articleId"));
         String title = request.getParameter("title");
         String descr = request.getParameter("descr");
