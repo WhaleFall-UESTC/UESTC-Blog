@@ -65,9 +65,10 @@
 
 <div class="content">
     <div class="article" th:if="${content} == 1" th:each="article : ${articles}">
-        <h1 th:text="${article.getTitle()}"></h1>
+        <button onclick="change()" th:text="${article.getTitle()}"></button>
         <p th:text="${article.getDescription()}"></p>
         <p class="time" th:text="${article.getArticleTime()}"></p>
+        <div id="content" th:value="${article.getContent()}"></div>
     </div>
 
     <div class="archive" th:if="${archives} == 1" th:each="subList : ${primaryList}">
@@ -78,157 +79,12 @@
     </div>
 
     <div class="article">
-        <textarea id="textarea1"># 页面输出
-
-如何将数据输出到页面？
-
-# 项目初始化
-
-npm init
-npm install express ejs
-
-
-
-# 创建web服务器
-
-server.js
-
-```
-const express = require('express')
-const app = express()
-
-app.listen(12399)
-```
-
-node server.js
-
-# 输出Hello World
-
-```
-app.get('/', (req,res) => {
-  res.send('Hello World!')
-})
-```
-
-refresh + view source
-
-# 输出完整html页面
-
-```
-html = "<html> <body> <h1>我的第一个标题</h1> <p>我的第一个段落。</p> </body> </html>"
-
-app.get('/', (req,res) => {
-  res.send(html)
-})
-```
-
-# 输出静态文件
-
-```
-app.use(express.static('public'));
-```
-
-public/test.html
-
-```
-<html>
-<body>
-
-<h1>我的第二个标题</h1>
-
-<p>我的第二个段落。</p>
-
-</body>
-</html>
-```
-
-# 增加图片和css
-
-public/baidu.png
-
-public/mystyle.css
-
-```
-body {
-  background-color: lightblue;
-}
-
-h1 {
-  color: navy;
-  margin-left: 20px;
-}
-```
-
-public/myhtml.html
-
-```
-<html>
-<head>
-<link rel="stylesheet" href="mystyle.css">
-</head>
-
-<body>
-<h1>This is a heading</h1>
-<p>This is a paragraph.</p>
-<img src="baidu.png" />
-</body>
-</html>
-```
-
-# 优化目录结构
-
-public/image/*.png
-
-public/css/*.css
-
-public/html/*.html
-
-# 输出模板文件
-
-views/hello.ejs
-
-```
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Blog</title>
-</head>
-<body>
-  This is HTML
-</body>
-</html>
-```
-
-server.js
-
-```
-app.set('view engine', 'ejs')
-
-app.get('/', (req,res) => {
-  res.render('hello')
-})
-```
-
-refresh + view source
-
-# 添加动态内容
-
-views/hello.ejs
-
-```
-<h1><%= dynamic_text %></h1>
-```
-
-server.js
-
-```
-app.get('/', (req,res) => {
-  res.render('hello', { dynamic_text: '新加入的动态内容' })
-})
-```
-
-</textarea>
         <button onclick="change()">转换</button>
+        <textarea id="textarea1">asdfasdfasd
+            ```#include<stdio.h>
+            ```
+        </textarea>
+
         <div id="box" style="background-color: rgb(28,28,28);"></div>
     </div>
 </div>
@@ -244,34 +100,109 @@ app.get('/', (req,res) => {
             },
         });
 
-
         function change(){
-            var text = document.getElementById("textarea1").value
-            console.log(text)
-            var text = document.getElementById("box").innerHTML = marked(text)
-
+            document.getElementById("content").innerHTML = marked(text);
         }
-
-        var marked = require('marked');
-        marked.setOptions({
-            renderer: new marked.Renderer(),
-            gfm: true,
-            tables: true,
-            breaks: false,
-            pedantic: false,
-            sanitize: false,
-            smartLists: true,
-            smartypants: false
-        });
-
-        marked(markdownText, {
-            gfm: true,
-            tables: true,
-            breaks: false,
-            pedantic: false,
-            sanitize: false,
-            smartLists: true,
-            smartypants: false
-        });
     </script>
+</html>
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/js-sha256/src/sha256.js"></script> -->
+    <meta charset="UTF-8">
+    <title>UESTC-Blog</title>
+    <link rel="stylesheet" href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+<div class="container-left">
+    <div class="sidebar">
+        <br><br>
+        <img src="img/home.jpg" class="HeadImage">
+        <br>
+        <h1>WhaleFall</h1>
+        <p>Don't cry, I am just a fish.</p>
+        <br>
+
+        <form action="show" method="get">
+            <button class="column-button"><i class="fa fa-th-list icon"></i> Home</button>
+        </form>
+
+        <form action="archives" method="get">
+            <button class="column-button"><i class="fa fa-th-list icon"></i> Archives</button>
+        </form>
+
+        <form action="board" method="get">
+            <button class="column-button"><i class="fa fa-th-list icon"></i> Board</button>
+        </form>
+
+        <form action="console" method="get" th:if="${authority != 0}">
+            <button class="column-button"><i class="fa fa-th-list icon"></i> Console</button>
+        </form>
+    </div>
+</div>
+
+<div class="container-right">
+    <div class="search-box">
+        <i class="fa fa-search"></i>
+        <input type="search" placeholder="Search...">
+    </div>
+
+    <div class="about-box">
+        <div class="notification-box">
+            <h1>通知</h1>
+            <p th:text="${nts}"></p>
+            <br />
+        </div>
+        <div class="message-box">
+            <h1>最新留言</h1>
+            <div th:each="msg : ${msgs}">
+                <p class="userName" th:text="${msg.getUserName()}"></p>
+                <p class="msg" th:text="${msg.getMsg()}"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="article" th:if="${content == 1}" th:each="article : ${articles}">
+        <h1 th:text="${article.getTitle()}"></h1>
+        <p th:text="${article.getDescription()}"></p>
+        <p class="time" th:text="${article.getArticleTime()}"></p>
+    </div>
+
+    <div class="archive" th:if="${archives == 1}" th:each="subList : ${primaryList}">
+        <h1 th:text="${subList.get(0).getArticleTime().substring(0, 7)}"></h1>
+        <div th:each="article : ${subList}">
+            <h4 th:text="${article.getTitle()}"></h4>
+        </div>
+    </div>
+
+
+    <div class="message" th:if="${board == 1}" th:each="msg : ${msgs_all}">
+        <div><img class="headimage" th:src="${msg.getImgPath()}"></div>
+        <div class="divh1"><h1 th:text="${msg.getUserName()}"></h1></div>
+        <div class="divp">
+            <p th:text="${msg.getMsg()}"></p>
+        </div>
+    </div>
+
+    <!--        <div th:if="${board} == 1 && ${authority} == 3">-->
+
+    <div th:if="${board == 1 && (authority == 3 || authority == 2)}">
+        <div class="hidediv"><h1> </h1></div>
+        <form class="input-box" method="post" action="sendMsg">
+            <textarea rows="3" type="text" id="msg-input" name="msg"></textarea>
+            <input type="submit" value="留言">
+            <!--            <input type="hidden" name="userId" th:value="${self.getId()}">-->
+        </form>
+    </div>
+</div>
+</body>
 </html>

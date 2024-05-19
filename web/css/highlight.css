@@ -7,8 +7,8 @@ code.hljs {
     padding: 3px 5px
 }
 .hljs {
-    color: #c9d1d9;
-    background: #0d1117
+    color: rgb(28,28,28);
+    background: white;
 }
 .hljs-doctag,
 .hljs-keyword,

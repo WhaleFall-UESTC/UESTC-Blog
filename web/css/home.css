@@ -428,3 +428,16 @@ body, .container-right, .container-left, .content, .article, .about-box, .inf, .
     padding-bottom: 40px;
     background-color: rgb(28, 28, 28);
 }
+
+.article button {
+    font-size: 1rem;
+    color:rgb(28,28,28);
+    font-weight: bolder;
+    margin-bottom: 0;
+    margin-top: 0;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.2s;
+}
