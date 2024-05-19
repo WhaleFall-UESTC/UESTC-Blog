@@ -41,6 +41,7 @@ public class Board extends ViewBaseServlet {
         List<Msg> msgs_all = msgDAO.selectall();
         request.setAttribute("msgs_all", msgs_all);
         request.setAttribute("board", 1);
+        request.setAttribute("imgPath", getServletContext().getRealPath("img"));
 
         super.processTemplate("home", request, response);
     }

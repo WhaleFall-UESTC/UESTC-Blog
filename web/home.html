@@ -108,21 +108,38 @@
     </div>
 
     <div class="content">
-        <div class="article" th:if="${content} == 1" th:each="article : ${articles}">
-            <form action="showArticleContent" method="get" id="showContext">
-                <h1 th:text="${article.getTitle()}"></h1>
-                <p th:text="${article.getDescription()}"></p>
-                <p class="time" th:text="${article.getArticleTime()}"></p>
-                <input type="hidden" th:value="${article.getId()}" name="ArticleId">
-                <button>unfold</button>
+<!--        <div class="article" th:if="${content} == 1" th:each="article : ${articles}">-->
+<!--            <form action="showArticleContent" method="get" th:id="${article.getId()}">-->
+<!--                <h1 th:text="${article.getTitle()}"></h1>-->
+<!--                <p th:text="${article.getDescription()}"></p>-->
+<!--                <p class="time" th:text="${article.getArticleTime()}"></p>-->
+<!--                <input type="hidden" th:value="${article.getId()}" name="ArticleId">-->
+<!--            </form>-->
+<!--        </div>-->
+        <div th:if="${content} == 1">
+            <form action="showArticleContent" method="get" th:each="article : ${articles}" th:id="${article.getId()}">
+                <button class="article">
+                    <h1 th:text="${article.getTitle()}"></h1>
+                    <p th:text="${article.getDescription()}"></p>
+                    <p class="time" th:text="${article.getArticleTime()}"></p>
+                    <input type="hidden" th:value="${article.getId()}" name="ArticleId">
+                </button>
             </form>
-
         </div>
 
         <div class="archive" th:if="${archives} == 1" th:each="subList : ${primaryList}">
             <h1 th:text="${subList.get(0).getArticleTime().substring(0, 7)}"></h1>
-            <div th:each="article : ${subList}">
-                <h4 th:text="${article.getTitle()}"></h4>
+            <form action="showArticleContent" method="get" th:each="article : ${subList}">
+                <button th:text="${article.getTitle()}"></button>
+                <input type="hidden" th:value="${article.getId()}" name="ArticleId">
+            </form>
+        </div>
+
+        <div class="message" th:if="${board == 1}" th:each="msg : ${msgs_all}">
+            <div><img class="headimage" th:src="${msg.getImgPath()}"></div>
+            <div class="divh1"><h1 th:text="${msg.getUserName()}"></h1></div>
+            <div class="divp">
+                <p th:text="${msg.getMsg()}"></p>
             </div>
         </div>
 

@@ -48,7 +48,7 @@ public class ShowArticleContent extends ViewBaseServlet {
 
         Article article = articleDAO.select(Integer.parseInt(ArticleId));
 
-        if(!article.getContent().isEmpty()) {
+        if(article.getContent() != null && !article.getContent().isEmpty()) {
             request.setAttribute("article", article);
         }
 

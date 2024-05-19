@@ -26,5 +26,5 @@ public class Msg {
 
     public User getTheUser() { return new UserDAO().getUserById(this.userId); }
     public String getUserName() { return getTheUser().getName(); }
-    public String getImgPath() { return "img/" + getUserName() + ".jpg"; }
+    public String getImgPath() { return "img\\" + getUserName() + ".jpg"; }
 }
