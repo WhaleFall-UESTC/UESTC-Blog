@@ -86,10 +86,10 @@
     </div>
 
     <div class="container-right">
-        <div class="search-box">
-            <i class="fa fa-search"></i>
-            <input type="search" placeholder="Search...">
-        </div>
+<!--        <div class="search-box">-->
+<!--            <i class="fa fa-search"></i>-->
+<!--            <input type="search" placeholder="Search...">-->
+<!--        </div>-->
 
         <div class="about-box">
             <div class="notification-box">
@@ -116,7 +116,7 @@
 <!--                <input type="hidden" th:value="${article.getId()}" name="ArticleId">-->
 <!--            </form>-->
 <!--        </div>-->
-        <div th:if="${content} == 1">
+        <div th:if="${content} == 1" class="articles">
             <form action="showArticleContent" method="get" th:each="article : ${articles}" th:id="${article.getId()}">
                 <button class="article">
                     <h1 th:text="${article.getTitle()}"></h1>

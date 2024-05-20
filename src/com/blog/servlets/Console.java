@@ -38,7 +38,7 @@ public class Console extends ViewBaseServlet {
         request.setAttribute("nts", nts);
 
         ArticleDAO articleDAO = new ArticleDAO();
-        List<Article> articles = articleDAO.selectPart(1, articleDAO.countArticles());
+        List<Article> articles = articleDAO.selectall();
         request.setAttribute("articles", articles);
 
         UserDAO userDAO = new UserDAO();

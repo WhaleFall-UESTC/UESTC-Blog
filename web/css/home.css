@@ -134,7 +134,7 @@ body, .container-right, .container-left, .content, .article, .about-box, .inf, .
     display: inline-block;
     text-align: left;
     margin-right: 40px;
-    margin-top: 100px;
+    margin-top: 10px;
     overflow: visible;
 }
 
@@ -180,6 +180,19 @@ body, .container-right, .container-left, .content, .article, .about-box, .inf, .
 
     display: flex;
     float: none;
+}
+
+.content .articles {
+    margin-bottom: 20px;
+    width: 100%;
+
+    background-color: transparent;
+    display: inline-block;
+    text-align: left;
+}
+
+.articles form {
+    width: 100%;
 }
 
 .article {

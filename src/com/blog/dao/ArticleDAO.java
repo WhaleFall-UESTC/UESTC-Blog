@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ArticleDAO {
-    public List<Article> selectPart(int minId, int maxId) {
+    public List<Article> selectall() {
         List<Article> articles = new ArrayList<>();
         Connection con = null;
         PreparedStatement pstmt = null;
@@ -16,10 +16,8 @@ public class ArticleDAO {
 
         try {
             con = JDBCUtils.getConnection();
-            String sql = "select * from articles where id >= ? and id <= ?";
+            String sql = "select * from articles;";
             pstmt = con.prepareStatement(sql);
-            pstmt.setInt(1, minId);
-            pstmt.setInt(2, maxId);
             res = pstmt.executeQuery();
 
             while (res.next()) {
