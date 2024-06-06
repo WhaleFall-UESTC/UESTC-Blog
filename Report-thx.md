@@ -363,8 +363,7 @@ submitButton.addEventListener('click', async function() {
 
 |功能|描述|学时|
 |--|--|--|
-|基础功能|文章增删改查|9|
-|基础功能|登陆注册|6|
+|基础功能|文章增删改|9|
 |新增功能 1|博客排版设计与 CSS 美化|9|
 |新增功能 2|Thymeleaf |3|
 |新增功能 3|Java Servlet|3|
